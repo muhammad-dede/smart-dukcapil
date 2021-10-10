@@ -4,7 +4,8 @@
 
 @section('content')
 <div class="w-lg-700px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
-    <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form">
+    <form action="{{ url('register') }}" class="form w-100" novalidate="novalidate" id="form-daftar" method="POST">
+        @csrf
         <div class="mb-10 text-center">
             <h1 class="text-dark mb-3">Buat Akun</h1>
             <div class="text-gray-400 fw-bold fs-5">Sudah memiliki akun?

@@ -12,6 +12,12 @@
                 <a href="{{ url('register') }}" class="link-primary fw-bolder">Daftar
                     disini</a></div>
         </div>
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <div class="fv-row mb-10">
             <label class="form-label fs-6 fw-bolder text-dark">Email/Username</label>
             <input id="username"
