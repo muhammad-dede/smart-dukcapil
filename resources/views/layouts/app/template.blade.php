@@ -46,10 +46,9 @@
             </svg>
         </span>
     </div>
+    <script src="{{ asset('') }}js/jquery.js"></script>
     <script src="{{ asset('') }}assets/plugins/global/plugins.bundle.js"></script>
     <script src="{{ asset('') }}assets/js/scripts.bundle.js"></script>
-    <script src="{{ asset('') }}assets/js/custom/widgets.js"></script>
-    <script src="{{ asset('') }}js/jquery.js"></script>
     @stack('scripts')
 </body>
 

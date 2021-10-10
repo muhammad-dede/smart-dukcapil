@@ -5,22 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Layanan extends Model
+class DataKelahiran extends Model
 {
     use HasFactory;
-    protected $table = 'layanan';
+
+    protected $table = 'data_kelahiran';
     protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $guarded = [];
 
-    public function persyaratan()
-    {
-        return $this->hasMany(Persyaratan::class, 'id_layanan', 'id');
-    }
-
     public function pengajuan()
     {
-        return $this->hasMany(Pengajuan::class, 'id_layanan', 'id');
+        return $this->morphOne(Pengajuan::class, 'data_pengajuan');
     }
 }

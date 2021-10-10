@@ -72,7 +72,7 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="image-container">
-                    <img class="img-fluid" src="{{ asset('') }}assets/media/websites/details-1.png" alt="alternative">
+                    <img class="img-fluid" src="{{ asset('') }}images/petunjuk/1.png" alt="alternative">
                 </div>
             </div>
             <div class="col-lg-5">

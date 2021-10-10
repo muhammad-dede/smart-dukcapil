@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Application;
 
 use App\Http\Controllers\Controller;
 use App\Models\Layanan;
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -12,6 +13,8 @@ class BerandaController extends Controller
     {
         return view('app.beranda.index', [
             'data_layanan' => Layanan::where('aktif', true)->get(),
+            'data_pengajuan' => Pengajuan::where('id_pelapor', auth()->id())->where('terima', false)->orderBy('tgl','desc')->get(),
+            'data_riwayat' => Pengajuan::where('id_pelapor', auth()->id())->where('terima', true)->orderBy('tgl','desc')->get(),
         ]);
     }
 }

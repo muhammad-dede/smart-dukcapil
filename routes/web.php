@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
         Route::get('/beranda', [BerandaController::class, 'index'])->name('beranda');
         Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
-        Route::get('/layanan/{url}', [LayananController::class, 'show'])->name('layanan.show');
+        Route::get('/layanan/{url}', [LayananController::class, 'create'])->name('layanan.create');
+        Route::post('/layanan/validation/{url}', [LayananController::class, 'store_validation'])->name('layanan.store-validation');
+        Route::post('/layanan/{url}', [LayananController::class, 'store'])->name('layanan.store');
     });
 });

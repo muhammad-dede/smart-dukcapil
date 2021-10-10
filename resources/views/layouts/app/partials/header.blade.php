@@ -31,39 +31,15 @@
                     <div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch"
                         id="#kt_header_menu" data-kt-menu="true">
                         <div data-kt-menu-placement="bottom-start" class="menu-item me-lg-1">
-                            <a class="menu-link active py-3" href="{{ url('') }}">
+                            <a class="menu-link {{ Request::is('app/beranda') ? 'active' : '' }} py-3"
+                                href="{{ url('app/beranda') }}">
                                 <span class="menu-title">Beranda</span>
                             </a>
                         </div>
-                        <div data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                            class="menu-item menu-lg-down-accordion me-lg-1">
-                            <span class="menu-link py-3">
-                                <span class="menu-title">Master Data</span>
-                                <span class="menu-arrow d-lg-none"></span>
-                            </span>
-                            <div
-                                class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
-                                <div class="menu-item">
-                                    <a href="{{ url('user') }}" class="menu-link">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">User</span>
-                                    </a>
-                                </div>
-                                <div class="menu-item">
-                                    <a href="#" class="menu-link">
-                                        <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
-                                        </span>
-                                        <span class="menu-title">Layanan</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                         <div data-kt-menu-placement="bottom-start" class="menu-item me-lg-1">
-                            <a class="menu-link py-3" href="{{ url('') }}">
-                                <span class="menu-title">Pengajuan</span>
+                            <a class="menu-link {{ Request::is('app/layanan') ? 'active' : '' }} py-3"
+                                href="{{ url('app/layanan') }}">
+                                <span class="menu-title">Layanan</span>
                                 <span></span>
                             </a>
                         </div>
@@ -199,8 +175,10 @@
                                         <img alt="Logo" src="{{ asset('') }}images/profil/default.svg" />
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bolder d-flex align-items-center fs-5">Max Smith </div>
-                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                        <div class="fw-bolder d-flex align-items-center fs-5">
+                                            {{ auth()->user()->nama_lengkap }} </div>
+                                        <a href="#"
+                                            class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                 </div>
                             </div>
