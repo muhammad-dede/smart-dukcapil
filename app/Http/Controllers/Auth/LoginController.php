@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         $user = User::where('username', $request->username)->orWhere('email', $request->username)->first();
         if (!$user) {
-            return response()->json(['status' => 404, 'message' => 'Nomor Induk Kependudukan tidak terdaftar']);
+            return response()->json(['status' => 404, 'message' => 'Email atau Username tidak terdaftar.']);
         } else {
             if (Hash::check($request->password, $user->password)) {
                 return response()->json(['status' => 200, 'message' => 'Berhasil Login']);
@@ -48,7 +48,7 @@ class LoginController extends Controller
 
         $user = User::where('username', $request->username)->orWhere('email', $request->username)->first();
         if (!$user) {
-            return redirect(url('login'))->with('failed', 'Nomor Induk Kependudukan tidak terdaftar');
+            return redirect(url('login'))->with('failed', 'Email atau Username tidak terdaftar.');
         } else {
             if (Hash::check($request->password, $user->password)) {
                 Auth::login($user, true);

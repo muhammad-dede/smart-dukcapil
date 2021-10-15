@@ -76,7 +76,8 @@
                             <div class="d-flex flex-column bgi-no-repeat rounded-top"
                                 style="background-image:url('{{ asset('') }}assets/media/misc/pattern-1.jpg')">
                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifikasi
-                                    <span class="fs-8 opacity-75 ps-3">24</span></h3>
+                                    <span class="fs-8 opacity-75 ps-3">24</span>
+                                </h3>
                                 <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
                                     <li class="nav-item">
                                         <a class="nav-link text-white opacity-75 opacity-state-100 pb-4"
@@ -165,34 +166,34 @@
                         <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px"
                             data-kt-menu-trigger="click" data-kt-menu-attach="parent"
                             data-kt-menu-placement="bottom-end">
-                            <img class="h-30px w-30px rounded" src="{{ asset('') }}images/profil/default.svg" alt="" />
+                            <img class="h-30px w-30px rounded"
+                                src="{{ asset('') }}images/profil/{{ auth()->user()->profil }}" alt="" />
                         </div>
                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
                             data-kt-menu="true">
                             <div class="menu-item px-3">
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Logo" src="{{ asset('') }}images/profil/default.svg" />
+                                        <img alt="Logo"
+                                            src="{{ asset('') }}images/profil/{{ auth()->user()->profil }}" />
                                     </div>
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">
                                             {{ auth()->user()->nama_lengkap }} </div>
-                                        <a href="#"
+                                        <a href="{{ url('app/profil/edit') }}"
                                             class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="#" class="menu-link px-5">Profil Saya</a>
-                            </div>
-                            <div class="menu-item px-5">
-                                <a href="#" class="menu-link px-5">Pengaturan Akun</a>
+                                <a href="{{ url('app/profil/edit') }}" class="menu-link px-5">Edit Profil Saya</a>
                             </div>
                             <div class="menu-item px-5">
                                 <a href="{{ url('logout') }}" class="menu-link px-5 text-danger"
                                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </div>

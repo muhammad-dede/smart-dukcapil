@@ -15,7 +15,7 @@ return [
     'before_or_equal' => ':attribute must be a date before or equal to :date.',
     'between' => [
         'numeric' => ':attribute harus antara :min dan :max.',
-        'file' => ':attribute harus antara :min and :max kilobytes.',
+        'file' => ':attribute harus antara :min dan :max kilobytes.',
         'string' => ':attribute harus antara :min dan :max characters.',
         'array' => ':attribute harus memiliki antara :min dan :max items.',
     ],
@@ -68,9 +68,9 @@ return [
         'array' => ':attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => ':attribute tidak boleh lebih besar than :max angka.',
-        'file' => ':attribute tidak boleh lebih besar than :max kilobyte.',
-        'string' => ':attribute tidak boleh lebih besar than :max karakter.',
+        'numeric' => ':attribute tidak boleh lebih besar dari :max angka.',
+        'file' => ':attribute tidak boleh lebih besar dari :max kilobyte.',
+        'string' => ':attribute tidak boleh lebih besar dari :max karakter.',
         'array' => ':attribute tidak boleh lebih dari :max item.',
     ],
     'mimes' => ':attribute harus berupa file type: :values.',

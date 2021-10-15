@@ -12,7 +12,7 @@
             <input type="hidden" id="url-layanan" value="{{ $layanan->url }}">
             <div class="card-body border-top p-9">
                 {{-- Data Anak --}}
-                <div id="data-kelahiran">
+                <div id="data-lahir-mati">
                     <h2 class="mb-5 text-primary">Data Anak</h2>
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama</label>
@@ -237,6 +237,205 @@
                 <div class="py-4 text-muted">
                     <hr>
                 </div>
+
+
+                <div id="data-anak">
+                    <h2 class="mb-5 text-primary">Yang Lahir Mati</h2>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Lamanya dalam kandungan</label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="dalam_kandungan" type="number" name="dalam_kandungan"
+                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: 09 Bulan"
+                                value="{{ old('dalam_kandungan') }}" />
+                            <small class="dalam_kandungan_error text-danger" id="error-text"></small>
+                            @error('dalam_kandungan')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Jenis Kelamin</label>
+                        <div class="col-lg-8 fv-row">
+                            <div class="d-flex align-items-center mt-3">
+                                <label class="form-check form-check-inline form-check-solid me-5">
+                                    <input id="jenis_kelamin_anak" class="form-check-input" name="jenis_kelamin_anak"
+                                        type="radio" value="L" />
+                                    <span class="fw-bold ps-2 fs-6">Laki-laki</span>
+                                </label>
+                                <label class="form-check form-check-inline form-check-solid">
+                                    <input id="jenis_kelamin_anak" class="form-check-input" name="jenis_kelamin_anak"
+                                        type="radio" value="P" />
+                                    <span class="fw-bold ps-2 fs-6">Perempuan</span>
+                                </label>
+                            </div>
+                            <small class="jenis_kelamin_anak_error text-danger" id="error-text"></small>
+                            @error('jenis_kelamin_anak')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Lahir Mati</label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="tgl_lahir_mati" type="date" name="tgl_lahir_mati"
+                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
+                                value="{{ old('tgl_lahir_mati') }}" />
+                            <small class="tgl_lahir_mati_error text-danger" id="error-text"></small>
+                            @error('tgl_lahir_mati')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Jenis Kelahiran</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <select id="jenis_kelahiran_anak" name="jenis_kelahiran_anak"
+                                aria-label="Pilih Jenis Kelahiran" data-control="select2"
+                                data-placeholder="Pilih Jenis Kelahiran..."
+                                class="form-select form-select-solid form-select-lg fw-bold">
+                                <option value="">Pilih Jenis Kelahiran...</option>
+                                @foreach (get_jenis_kelahiran() as $jenis_kelahiran)
+                                    <option value="{{ $jenis_kelahiran->kode }}">{{ $jenis_kelahiran->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <small class="jenis_kelahiran_anak_error text-danger" id="error-text"></small>
+                            @error('jenis_kelahiran_anak')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Anak Ke</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="anak_ke" type="text" name="anak_ke"
+                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: 2"
+                                value="{{ old('anak_ke') }}" />
+                            <small class="anak_ke_error text-danger" id="error-text"></small>
+                            @error('anak_ke')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Tempat Dilahirkan</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <select id="tmpt_dilahirkan_anak" name="tmpt_dilahirkan_anak"
+                                aria-label="Pilih Tempat Dilahirkan" data-control="select2"
+                                data-placeholder="Pilih Tempat Dilahirkan..."
+                                class="form-select form-select-solid form-select-lg fw-bold">
+                                <option value="">Pilih Tempat Dilahirkan...</option>
+                                @foreach (get_tempat_dilahirkan() as $tempat_dilahirkan)
+                                    <option value="{{ $tempat_dilahirkan->kode }}">{{ $tempat_dilahirkan->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <small class="tmpt_dilahirkan_anak_error text-danger" id="error-text"></small>
+                            @error('tmpt_dilahirkan_anak')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Penolong Kelahiran</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <select id="penolong_kelahiran_anak" name="penolong_kelahiran_anak"
+                                aria-label="Pilih Penolong Kelahiran" data-control="select2"
+                                data-placeholder="Pilih Penolong Kelahiran..."
+                                class="form-select form-select-solid form-select-lg fw-bold">
+                                <option value="">Pilih Penolong Kelahiran...</option>
+                                @foreach (get_penolong_kelahiran() as $penolong_kelahiran)
+                                    <option value="{{ $penolong_kelahiran->kode }}">
+                                        {{ $penolong_kelahiran->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <small class="penolong_kelahiran_anak_error text-danger" id="error-text"></small>
+                            @error('penolong_kelahiran_anak')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Sebab Lahir Mati</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="sebab_lahir_mati" type="text" name="sebab_lahir_mati"
+                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: sakit"
+                                value="{{ old('sebab_lahir_mati') }}" />
+                            <small class="sebab_lahir_mati_error text-danger" id="error-text"></small>
+                            @error('sebab_lahir_mati')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label fw-bold fs-6">
+                            <span class="required">Yang Menentukan</span>
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <select id="yang_menentukan" name="yang_menentukan" aria-label="Pilih Yang Menentukan"
+                                data-control="select2" data-placeholder="Pilih Yang Menentukan..."
+                                class="form-select form-select-solid form-select-lg fw-bold">
+                                <option value="">Pilih Yang Menentukan...</option>
+                                @foreach (get_penolong_kelahiran() as $penolong_kelahiran)
+                                    <option value="{{ $penolong_kelahiran->kode }}">
+                                        {{ $penolong_kelahiran->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            <small class="yang_menentukan_error text-danger" id="error-text"></small>
+                            @error('yang_menentukan')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tempat Kelahiran</label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="tmpt_kelahiran_anak" type="text" name="tmpt_kelahiran_anak"
+                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                placeholder="Contoh: Cilegon" value="{{ old('tmpt_kelahiran_anak') }}" />
+                            <small class="tmpt_kelahiran_anak_error text-danger" id="error-text"></small>
+                            @error('tmpt_kelahiran_anak')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4 text-muted">
+                    <hr>
+                </div>
+
                 {{-- Data Ortu --}}
                 <div id="data-ortu">
                     <h2 class="mb-5 text-primary">Data Orang Tua</h2>
@@ -244,8 +443,8 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Ayah</label>
                         <div class="col-lg-8 fv-row">
                             <input id="nama_ayah" type="text" name="nama_ayah"
-                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: Abdi Rizky"
-                                value="{{ old('nama_ayah') }}" />
+                                class="form-control form-control-lg form-control-solid"
+                                placeholder="Contoh: Abdi Rizky" value="{{ old('nama_ayah') }}" />
                             <small class="nama_ayah_error text-danger" id="error-text"></small>
                             @error('nama_ayah')
                                 <span class="text-danger" role="alert">
