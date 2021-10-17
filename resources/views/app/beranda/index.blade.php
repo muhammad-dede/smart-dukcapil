@@ -76,6 +76,10 @@
                                     <div class="text-gray-600">{{ ucwords(auth()->user()->nama_ibu) }}</div>
                                     <div class="fw-bolder mt-5">Nomor Telepon</div>
                                     <div class="text-gray-600">{{ auth()->user()->telp }}</div>
+                                    <div class="fw-bolder mt-5">Kewarganegaraan</div>
+                                    <div class="text-gray-600">
+                                        {{ !empty(auth()->user()->kewarganegaraan) ? auth()->user()->_kewarganegaraan->nama : '-' }}
+                                    </div>
                                     <div class="fw-bolder mt-5">Username</div>
                                     <div class="text-primary">{{ strtolower(auth()->user()->username) }}</div>
                                     <div class="fw-bolder mt-5">Email</div>
@@ -112,6 +116,9 @@
                                 </div>
                                 <div class="card-body p-9 pt-4">
                                     @forelse ($data_pengajuan as $pengajuan)
+                                        @php
+                                            $status_pengajuan = get_status_pengajuan($pengajuan->id);
+                                        @endphp
                                         <div class="d-flex flex-stack position-relative mt-6">
                                             <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0">
                                             </div>
@@ -119,25 +126,16 @@
                                                 <div class="fs-7 mb-1">
                                                     {{ \Carbon\Carbon::parse($pengajuan->tgl)->isoFormat('dddd, D MMMM Y') }}
                                                 </div>
-                                                <a href="#" class="fs-5 fw-bolder text-dark text-hover-primary mb-2">Layanan
+                                                <a href="{{ url('app/layanan/detail') }}/{{ $pengajuan->id }}"
+                                                    class="fs-5 fw-bolder text-dark text-hover-primary mb-2">Layanan
                                                     {{ $pengajuan->layanan->layanan }}</a>
                                                 <div class="fs-7 text-muted">Status pengajuan &nbsp;:&nbsp;
-                                                    @if ($pengajuan->id_user == null)
-                                                        <span class="text-info">Sedang Diverifikasi</span>
-                                                    @else
-                                                        @if ($pengajuan->verifikasi == false)
-                                                            <span class="text-primary">Sedang Diproses</span>
-                                                        @else
-                                                            @if ($pengajuan->tolak == true)
-                                                                <span class="text-danger">Ditolak</span>
-                                                            @elseif ($pengajuan->terima == true)
-                                                                <span class="text-success">Ditolak</span>
-                                                            @endif
-                                                        @endif
-                                                    @endif
+                                                    <span
+                                                        class="text-{{ get_status_pengajuan($pengajuan->id)->color }}">{{ get_status_pengajuan($pengajuan->id)->status }}</span>
                                                 </div>
                                             </div>
-                                            <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Detail</a>
+                                            <a href="{{ url('app/layanan/detail') }}/{{ $pengajuan->id }}"
+                                                class="btn btn-light bnt-active-light-primary btn-sm">Detail</a>
                                         </div>
                                     @empty
                                         <div class="text-center mt-6 mb-10">

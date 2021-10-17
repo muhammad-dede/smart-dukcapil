@@ -73,6 +73,10 @@
                                     <div class="text-gray-600">{{ ucwords(auth()->user()->nama_ibu) }}</div>
                                     <div class="fw-bolder mt-5">Nomor Telepon</div>
                                     <div class="text-gray-600">{{ auth()->user()->telp }}</div>
+                                    <div class="fw-bolder mt-5">Kewarganegaraan</div>
+                                    <div class="text-gray-600">
+                                        {{ !empty(auth()->user()->kewarganegaraan) ? auth()->user()->_kewarganegaraan->nama : '-' }}
+                                    </div>
                                     <div class="fw-bolder mt-5">Username</div>
                                     <div class="text-primary">{{ strtolower(auth()->user()->username) }}</div>
                                     <div class="fw-bolder mt-5">Email</div>

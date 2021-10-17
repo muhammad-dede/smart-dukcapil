@@ -17,6 +17,7 @@ $(document).ready(function () {
                 tgl_lahir: $('#tgl_lahir').val(),
                 nama_ibu: $('#nama_ibu').val(),
                 telp: $('#telp').val(),
+                kewarganegaraan: $('#kewarganegaraan').val(),
                 username: $('#username').val(),
                 email: $('#email').val(),
                 password: $('#password').val(),

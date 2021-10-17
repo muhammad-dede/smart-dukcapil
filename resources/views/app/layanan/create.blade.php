@@ -47,8 +47,10 @@
                 @include('app.layanan.form.pembetulan-akta')
             @elseif ($layanan->url == 'pembatalan-akta' || $layanan->id == 15)
                 @include('app.layanan.form.pembatalan-akta')
+            @elseif ($layanan->url == 'pelaporan-luar-nkri' || $layanan->id == 16)
+                @include('app.layanan.form.pelaporan-luar-nkri')
             @else
-                @include('app.layanan.form.coming-soon')
+                @include('app.layanan.form.404')
             @endif
         </div>
     </div>

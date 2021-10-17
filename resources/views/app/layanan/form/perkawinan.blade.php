@@ -11,17 +11,16 @@
             @csrf
             <input type="hidden" id="url-layanan" value="{{ $layanan->url }}">
             <div class="card-body border-top p-9">
-                {{-- Data Anak --}}
+                {{-- Data Perkawinan --}}
                 <div id="data-perkawinan">
-                    {{-- <h2 class="mb-5 text-primary">Data Anak</h2> --}}
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Ayah dari Suami</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nik_ayah_suami" type="text" name="nik_ayah_suami"
+                            <input id="nik_ayah_dari_suami" type="text" name="nik_ayah_dari_suami"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ayah_suami') }}" />
-                            <small class="nik_ayah_suami_error text-danger" id="error-text"></small>
-                            @error('nik_ayah_suami')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ayah_dari_suami') }}" />
+                            <small class="nik_ayah_dari_suami_error text-danger" id="error-text"></small>
+                            @error('nik_ayah_dari_suami')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -31,11 +30,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Ayah dari Suami</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_ayah_suami" type="text" name="nama_ayah_suami"
+                            <input id="nama_ayah_dari_suami" type="text" name="nama_ayah_dari_suami"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Asmawi"
-                                value="{{ old('nama_ayah_suami') }}" />
-                            <small class="nama_ayah_suami_error text-danger" id="error-text"></small>
-                            @error('nama_ayah_suami')
+                                value="{{ old('nama_ayah_dari_suami') }}" />
+                            <small class="nama_ayah_dari_suami_error text-danger" id="error-text"></small>
+                            @error('nama_ayah_dari_suami')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -45,11 +44,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Ibu dari Suami</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nik_ibu_suami" type="text" name="nik_ibu_suami"
+                            <input id="nik_ibu_dari_suami" type="text" name="nik_ibu_dari_suami"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ibu_suami') }}" />
-                            <small class="nik_ibu_suami_error text-danger" id="error-text"></small>
-                            @error('nik_ibu_suami')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ibu_dari_suami') }}" />
+                            <small class="nik_ibu_dari_suami_error text-danger" id="error-text"></small>
+                            @error('nik_ibu_dari_suami')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -59,11 +58,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Ibu dari Suami</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_ibu_suami" type="text" name="nama_ibu_suami"
+                            <input id="nama_ibu_dari_suami" type="text" name="nama_ibu_dari_suami"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Lilis"
-                                value="{{ old('nama_ibu_suami') }}" />
-                            <small class="nama_ibu_suami_error text-danger" id="error-text"></small>
-                            @error('nama_ibu_suami')
+                                value="{{ old('nama_ibu_dari_suami') }}" />
+                            <small class="nama_ibu_dari_suami_error text-danger" id="error-text"></small>
+                            @error('nama_ibu_dari_suami')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -73,11 +72,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Ayah dari Istri</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nik_ayah_istri" type="text" name="nik_ayah_istri"
+                            <input id="nik_ayah_dari_istri" type="text" name="nik_ayah_dari_istri"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ayah_istri') }}" />
-                            <small class="nik_ayah_istri_error text-danger" id="error-text"></small>
-                            @error('nik_ayah_istri')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ayah_dari_istri') }}" />
+                            <small class="nik_ayah_dari_istri_error text-danger" id="error-text"></small>
+                            @error('nik_ayah_dari_istri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -87,11 +86,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Ayah dari Istri</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_ayah_istri" type="text" name="nama_ayah_istri"
+                            <input id="nama_ayah_dari_istri" type="text" name="nama_ayah_dari_istri"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Asmawi"
-                                value="{{ old('nama_ayah_istri') }}" />
-                            <small class="nama_ayah_suami_error text-danger" id="error-text"></small>
-                            @error('nama_ayah_istri')
+                                value="{{ old('nama_ayah_dari_istri') }}" />
+                            <small class="nama_ayah_dari_istri_error text-danger" id="error-text"></small>
+                            @error('nama_ayah_dari_istri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -101,11 +100,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Ibu dari Istri</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nik_ibu_istri" type="text" name="nik_ibu_istri"
+                            <input id="nik_ibu_dari_istri" type="text" name="nik_ibu_dari_istri"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ibu_istri') }}" />
-                            <small class="nik_ibu_istri_error text-danger" id="error-text"></small>
-                            @error('nik_ibu_istri')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nik_ibu_dari_istri') }}" />
+                            <small class="nik_ibu_dari_istri_error text-danger" id="error-text"></small>
+                            @error('nik_ibu_dari_istri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -115,11 +114,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Ibu dari Istri</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_ibu_istri" type="text" name="nama_ibu_istri"
+                            <input id="nama_ibu_dari_istri" type="text" name="nama_ibu_dari_istri"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Lilis"
-                                value="{{ old('nama_ibu_istri') }}" />
-                            <small class="nama_ibu_istri_error text-danger" id="error-text"></small>
-                            @error('nama_ibu_istri')
+                                value="{{ old('nama_ibu_dari_istri') }}" />
+                            <small class="nama_ibu_dari_istri_error text-danger" id="error-text"></small>
+                            @error('nama_ibu_dari_istri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -131,17 +130,18 @@
                             <span class="required">Status Perkawinan Sebelum Kawin</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <select id="status_perkawinan" name="status_perkawinan" aria-label="Pilih Status Perkawinan"
-                                data-control="select2" data-placeholder="Pilih Status Perkawinan..."
+                            <select id="status_perkawinan_sebelum_kawin" name="status_perkawinan_sebelum_kawin"
+                                aria-label="Pilih Status Perkawinan Sebelum Kawin" data-control="select2"
+                                data-placeholder="Pilih Status Perkawinan Sebelum Kawin..."
                                 class="form-select form-select-solid form-select-lg fw-bold">
                                 <option value="">Pilih Status Perkawinan Sebelum Kawin...</option>
-                                {{-- @foreach (get_jenis_kelahiran() as $jenis_kelahiran)
-                                    <option value="{{ $jenis_kelahiran->kode }}">{{ $jenis_kelahiran->nama }}
+                                @foreach (get_status_kawin() as $status_kawin)
+                                    <option value="{{ $status_kawin->kode }}">{{ $status_kawin->nama }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
-                            <small class="status_perkawinan_error text-danger" id="error-text"></small>
-                            @error('status_perkawinan')
+                            <small class="status_perkawinan_sebelum_kawin_error text-danger" id="error-text"></small>
+                            @error('status_perkawinan_sebelum_kawin')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -151,11 +151,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Perkawinan yang ke -</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="perkawinan_ke" type="number" name="perkawinan_ke"
+                            <input id="perkawinan_yang_ke" type="number" name="perkawinan_yang_ke"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: 1"
-                                value="{{ old('perkawinan_ke') }}" />
-                            <small class="perkawinan_ke_error text-danger" id="error-text"></small>
-                            @error('perkawinan_ke')
+                                value="{{ old('perkawinan_yang_ke') }}" />
+                            <small class="perkawinan_yang_ke_error text-danger" id="error-text"></small>
+                            @error('perkawinan_yang_ke')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -165,12 +165,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Istri yang ke - </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="istri_ke" type="number" name="istri_ke"
+                            <input id="istri_yang_ke" type="number" name="istri_yang_ke"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: 2"
-                                value="{{ old('istri_ke') }}" />
-                            <div class="form-text">Bagi yang poligami</div>
-                            <small class="istri_ke_error text-danger" id="error-text"></small>
-                            @error('istri_ke')
+                                value="{{ old('istri_yang_ke') }}" />
+                            <small class="istri_yang_ke_error text-danger" id="error-text"></small>
+                            @error('istri_yang_ke')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -181,11 +180,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Pemberkatan
                             Perkawinan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_pemberkatan" type="date" name="tgl_pemberkatan"
+                            <input id="tgl_pemberkatan_perkawinan" type="date" name="tgl_pemberkatan_perkawinan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('tgl_pemberkatan') }}" />
-                            <small class="tgl_pemberkatan_error text-danger" id="error-text"></small>
-                            @error('tgl_pemberkatan')
+                                value="{{ old('tgl_pemberkatan_perkawinan') }}" />
+                            <small class="tgl_pemberkatan_perkawinan_error text-danger" id="error-text"></small>
+                            @error('tgl_pemberkatan_perkawinan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -224,20 +223,20 @@
                     </div>
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">
-                            <span class="required">Agama</span>
+                            <span class="required">Agama Kepercayaan</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <select id="agama" name="agama" aria-label="Pilih Agama" data-control="select2"
-                                data-placeholder="Pilih Agama..."
+                            <select id="agama_kepercayaan" name="agama_kepercayaan" aria-label="Pilih Agama Kepercayaan"
+                                data-control="select2" data-placeholder="Pilih Agama Kepercayaan..."
                                 class="form-select form-select-solid form-select-lg fw-bold">
-                                <option value="">Pilih Agama...</option>
-                                {{-- @foreach (get_jenis_kelahiran() as $jenis_kelahiran)
-                                    <option value="{{ $jenis_kelahiran->kode }}">{{ $jenis_kelahiran->nama }}
+                                <option value="">Pilih Agama Kepercayaan...</option>
+                                @foreach (get_agama() as $agama)
+                                    <option value="{{ $agama->kode }}">{{ $agama->nama }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
-                            <small class="agama_error text-danger" id="error-text"></small>
-                            @error('agama')
+                            <small class="agama_kepercayaan_error text-danger" id="error-text"></small>
+                            @error('agama_kepercayaan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -249,11 +248,11 @@
                             <span class="required">Nama Organisasi Kepercayaan</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_organisasi" type="text" name="nama_organisasi"
+                            <input id="nama_organisasi_kepercayaan" type="text" name="nama_organisasi_kepercayaan"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('nama_organisasi') }}" />
-                            <small class="nama_organisasi_error text-danger" id="error-text"></small>
-                            @error('nama_organisasi')
+                                value="{{ old('nama_organisasi_kepercayaan') }}" />
+                            <small class="nama_organisasi_kepercayaan_error text-danger" id="error-text"></small>
+                            @error('nama_organisasi_kepercayaan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -282,11 +281,11 @@
                             <span class="required">Nomor Penetapan Pengadilan</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_pengadilan" type="text" name="no_pengadilan"
+                            <input id="no_penetapan_pengadilan" type="text" name="no_penetapan_pengadilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxxxx"
                                 value="{{ old('nama_pengadilan') }}" />
-                            <small class="no_pengadilan_error text-danger" id="error-text"></small>
-                            @error('no_pengadilan')
+                            <small class="no_penetapan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('no_penetapan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -297,11 +296,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Penetapan
                             Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_penepatan" type="date" name="tgl_penepatan"
+                            <input id="tgl_penepatan_pengadilan" type="date" name="tgl_penepatan_pengadilan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('tgl_penepatan') }}" />
-                            <small class="tgl_penepatan_error text-danger" id="error-text"></small>
-                            @error('tgl_penepatan')
+                                value="{{ old('tgl_penepatan_pengadilan') }}" />
+                            <small class="tgl_penepatan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('tgl_penepatan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -329,11 +328,11 @@
                             <span class="required">Nomor Surat Izin dari Perwakilan</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_surat_perwakilan" type="text" name="no_surat_perwakilan"
+                            <input id="no_surat_izin_dari_perwakilan" type="text" name="no_surat_izin_dari_perwakilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxxxx"
-                                value="{{ old('no_surat_perwakilan') }}" />
-                            <small class="no_surat_perwakilan_error text-danger" id="error-text"></small>
-                            @error('no_surat_perwakilan')
+                                value="{{ old('no_surat_izin_dari_perwakilan') }}" />
+                            <small class="no_surat_izin_dari_perwakilan_error text-danger" id="error-text"></small>
+                            @error('no_surat_izin_dari_perwakilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -419,12 +418,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="py-4 text-muted">
-                    <hr>
-                </div>
-
                 {{-- Catatan --}}
-                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mt-15">
+                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mt-10">
                     <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path opacity="0.3"

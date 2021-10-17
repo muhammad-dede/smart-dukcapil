@@ -13,8 +13,8 @@ class BerandaController extends Controller
     {
         return view('app.beranda.index', [
             'data_layanan' => Layanan::where('aktif', true)->get(),
-            'data_pengajuan' => Pengajuan::where('id_pelapor', auth()->id())->where('terima', false)->orderBy('tgl','desc')->get(),
-            'data_riwayat' => Pengajuan::where('id_pelapor', auth()->id())->where('terima', true)->orderBy('tgl','desc')->get(),
+            'data_pengajuan' => Pengajuan::where('id_pelapor', auth()->id())->orderBy('tgl', 'desc')->get(),
+            'data_riwayat' => Pengajuan::where('id_pelapor', auth()->id())->where('terima', 'Y')->orderBy('tgl', 'desc')->get(),
         ]);
     }
 }

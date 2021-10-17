@@ -26,8 +26,9 @@ Route::group(['middleware' => 'auth'], function () {
         // Layanan
         Route::get('/layanan', [LayananController::class, 'index'])->name('layanan');
         Route::get('/layanan/{url}', [LayananController::class, 'create'])->name('layanan.create');
-        Route::post('/layanan/validation/{url}', [LayananController::class, 'store_validation'])->name('layanan.store-validation');
+        Route::post('/layanan/validation/{url}', [LayananController::class, 'storeValidation'])->name('layanan.store-validation');
         Route::post('/layanan/{url}', [LayananController::class, 'store'])->name('layanan.store');
+        Route::get('/layanan/detail/{url}', [LayananController::class, 'show'])->name('layanan.show');
         // Profil Setting
         Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
         Route::post('/profil/update/validation', [ProfilController::class, 'updateProfilValidation'])->name('profil.update.validation');

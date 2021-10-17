@@ -140,6 +140,28 @@
                         @enderror
                     </div>
                 </div>
+                <div class="row mb-5">
+                    <label class="col-lg-4 col-form-label required fw-bold fs-6">Kewarganegaraan</label>
+                    <div class="col-lg-8 fv-row">
+                        <select id="kewarganegaraan" name="kewarganegaraan" aria-label="Pilih Kewarganegaraan"
+                            data-control="select2" data-placeholder="Pilih Kewarganegaraan..."
+                            class="form-select form-select-solid form-select-lg fw-bold">
+                            <option value="">Pilih Kewarganegaraan...</option>
+                            @foreach (get_negara() as $negara)
+                                <option value="{{ $negara->kode }}"
+                                    {{ auth()->user()->kewarganegaraan == $negara->kode ? 'selected' : '' }}>
+                                    {{ $negara->nama }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <small class="kewarganegaraan_error text-danger" id="error-text"></small>
+                        @error('kewarganegaraan')
+                            <span class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
             </div>
             <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6 mt-10">
                 <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">

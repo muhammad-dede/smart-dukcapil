@@ -49,6 +49,31 @@
     <script src="{{ asset('') }}js/jquery.js"></script>
     <script src="{{ asset('') }}assets/plugins/global/plugins.bundle.js"></script>
     <script src="{{ asset('') }}assets/js/scripts.bundle.js"></script>
+    <script src="{{ asset('') }}js/sweetalert.js"></script>
+    <script>
+        $(function() {
+            @if (Session::has('success'))
+                Swal.fire({
+                toast: true,
+                icon: 'success',
+                title: '{{ Session::get('success') }}',
+                showConfirmButton: false,
+                showCloseButton: true,
+                position: 'top-end',
+                });
+            @endif
+            @if (Session::has('warning'))
+                Swal.fire({
+                toast: true,
+                icon: 'error',
+                title: '{{ Session::get('success') }}',
+                position: 'top-end',
+                showConfirmButton: false,
+                showCloseButton: true,
+                });
+            @endif
+        });
+    </script>
     @stack('scripts')
 </body>
 

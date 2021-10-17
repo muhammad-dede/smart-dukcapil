@@ -11,10 +11,8 @@
             @csrf
             <input type="hidden" id="url-layanan" value="{{ $layanan->url }}">
             <div class="card-body border-top p-9">
-                {{-- Data Anak --}}
+                {{-- Data Perceraian --}}
                 <div id="data-perceraian">
-                    {{-- <h2 class="mb-5 text-primary">Data Anak</h2> --}}
-
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Akta Perkawinan</label>
                         <div class="col-lg-8 fv-row">
@@ -107,11 +105,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Surat Keterangan Panitera
                             Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_surat_panitera" type="text" name="no_surat_panitera"
+                            <input id="no_surat_panitera_pengadilan" type="text" name="no_surat_panitera_pengadilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxx"
-                                value="{{ old('no_surat_panitera') }}" />
-                            <small class="no_surat_panitera_error text-danger" id="error-text"></small>
-                            @error('no_surat_panitera')
+                                value="{{ old('no_surat_panitera_pengadilan') }}" />
+                            <small class="no_surat_panitera_pengadilan_error text-danger" id="error-text"></small>
+                            @error('no_surat_panitera_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

@@ -35,6 +35,7 @@ class ProfilController extends Controller
             'tgl_lahir' => 'required|date_format:Y-m-d',
             'nama_ibu' => 'required|string',
             'telp' => 'required|string',
+            'kewarganegaraan' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -69,6 +70,7 @@ class ProfilController extends Controller
             'tgl_lahir' => 'required|date_format:Y-m-d',
             'nama_ibu' => 'required|string',
             'telp' => 'required|string',
+            'kewarganegaraan' => 'required|string',
         ]);
 
         User::where('id', auth()->id())->update([
@@ -79,6 +81,7 @@ class ProfilController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'nama_ibu' => ucwords($request->nama_ibu),
             'telp' => $request->telp,
+            'kewarganegaraan' => $request->kewarganegaraan,
             'profil' => $profil,
         ]);
 

@@ -29,6 +29,7 @@ class User extends Authenticatable
         'tempat_lahir',
         'nama_ibu',
         'telp',
+        'kewarganegaraan',
         'username',
         'email',
         'password',
@@ -53,4 +54,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function _kewarganegaraan()
+    {
+        return $this->belongsTo(_Negara::class, 'kewarganegaraan', 'kode');
+    }
 }

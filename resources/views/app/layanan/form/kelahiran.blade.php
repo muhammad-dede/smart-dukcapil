@@ -187,10 +187,12 @@
                                 data-placeholder="Pilih Penolong Kelahiran..."
                                 class="form-select form-select-solid form-select-lg fw-bold">
                                 <option value="">Pilih Penolong Kelahiran...</option>
-                                @foreach (get_penolong_kelahiran() as $penolong_kelahiran)
-                                    <option value="{{ $penolong_kelahiran->kode }}">
-                                        {{ $penolong_kelahiran->nama }}
-                                    </option>
+                                @foreach (get_tenaga_ahli() as $penolong_kelahiran)
+                                    @if ($penolong_kelahiran->nama !== 'Kepolisian')
+                                        <option value="{{ $penolong_kelahiran->kode }}">
+                                            {{ $penolong_kelahiran->nama }}
+                                        </option>
+                                    @endif
                                 @endforeach
                             </select>
                             <small class="penolong_kelahiran_anak_error text-danger" id="error-text"></small>
