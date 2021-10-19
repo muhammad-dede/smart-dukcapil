@@ -7,7 +7,7 @@ $(document).ready(function () {
     $("#btn-pengajuan").on("click", function (e) {
         e.preventDefault();
         $.ajax({
-            url: base_url + '/app/layanan/validation/' + $("#url-layanan").val(),
+            url: base_url + '/app/layanan/store-validation/' + $("#url-layanan").val(),
             method: "POST",
             data: new FormData($("#form-pengajuan-layanan")[0]),
             processData: false,

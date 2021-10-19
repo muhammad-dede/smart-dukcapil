@@ -19,6 +19,10 @@
         <div class="content flex-row-fluid" id="kt_content">
             @if ($pengajuan->layanan->url == 'kelahiran' && $pengajuan->id_layanan == 1)
                 @include('app.layanan.show.kelahiran')
+            @elseif ($pengajuan->layanan->url == 'lahir-mati' && $pengajuan->id_layanan == 2)
+                @include('app.layanan.show.lahir-mati')
+            @elseif ($pengajuan->layanan->url == 'perkawinan' && $pengajuan->id_layanan == 3)
+                @include('app.layanan.show.perkawinan')
             @else
                 @include('app.layanan.show.404')
             @endif

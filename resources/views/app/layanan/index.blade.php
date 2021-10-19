@@ -20,7 +20,7 @@
             <div class="row g-6 g-xl-9 pb-10">
                 @foreach ($data_layanan as $layanan)
                     <div class="col-xl-3 col-md-4 col-sm-4 col-xs-6 col-12">
-                        <a href="{{ url('app/layanan') }}/{{ $layanan->url }}"
+                        <a href="{{ url('app/layanan/create') }}/{{ $layanan->url }}"
                             class="card border border-2 border-gray-300 border-hover h-100">
                             <div class="card-header border-0 pt-9">
                                 <div class="card-title m-0">

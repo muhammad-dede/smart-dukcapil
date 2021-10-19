@@ -19,10 +19,7 @@
             <div class="d-flex flex-stack flex-grow-1">
                 <div class="fw-bold">
                     <h4 class="text-gray-900 fw-bolder">{{ $status_pengajuan->status }}</h4>
-                    <div class="fs-6 text-gray-700">{{ $status_pengajuan->text }}
-                        {{-- <a class="fw-bolder" href="#">Add Payment
-                            Method</a> --}}
-                    </div>
+                    <div class="fs-6 text-gray-700">{{ $status_pengajuan->text }}</div>
                 </div>
             </div>
         </div>
@@ -57,90 +54,76 @@
         <div class="mb-3 text-muted">
             <hr>
         </div>
-        <div id="data-anak">
-            <h3 class="text-primary mb-5">Data Anak</h3>
+        <div id="data-lahir-mati">
+            <h3 class="text-primary mb-5">Data Lahir Mati</h3>
             <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Nama</label>
+                <label class="col-lg-4 fw-bold text-muted">Lamanya Dalam Kandungan</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ ucwords($pengajuan->data_pengajuan->nama_anak) }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ ucwords($pengajuan->data_pengajuan->lamanya_dalam_kandungan) }}
+                        Bulan</span>
                 </div>
             </div>
             <div class="row mb-7">
                 <label class="col-lg-4 fw-bold text-muted">Jenis Kelamin</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->jenis_kelamin_anak == 'L' ? 'Laki-laki' : 'Perempuan' }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->jenis_kelamin == 'L' ? 'Laki-laki' : 'Perempuan' }}</span>
                 </div>
             </div>
             <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Tempat Dilahirkan</label>
+                <label class="col-lg-4 fw-bold text-muted">Tanggal Lahir Mati</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->tmpt_dilahirkan_anak) ? $pengajuan->data_pengajuan->tempatDilahirkanAnak->nama : '' }}</span>
-                </div>
-            </div>
-            <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Tempat Kelahiran</label>
-                <div class="col-lg-8">
-                    <span
-                        class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->tmpt_kelahiran_anak }}</span>
-                </div>
-            </div>
-            <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Hari Kelahiran</label>
-                <div class="col-lg-8">
-                    <span
-                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->hari_lahir_anak) ? $pengajuan->data_pengajuan->hariLahirAnak->nama : '' }}</span>
-                </div>
-            </div>
-            <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Tanggal Lahir</label>
-                <div class="col-lg-8">
-                    <span
-                        class="fw-bolder fs-6 text-gray-800">{{ \Carbon\Carbon::parse($pengajuan->data_pengajuan->tgl_lahir_anak)->isoFormat('D MMMM Y') }}</span>
-                </div>
-            </div>
-            <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Waktu Lahir</label>
-                <div class="col-lg-8">
-                    <span
-                        class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->waktu_lahir_anak }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ \Carbon\Carbon::parse($pengajuan->data_pengajuan->tgl_lahir_mati)->isoFormat('D MMMM Y') }}</span>
                 </div>
             </div>
             <div class="row mb-7">
                 <label class="col-lg-4 fw-bold text-muted">Jenis Kelahiran</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->jenis_kelahiran_anak) ? $pengajuan->data_pengajuan->jenisKelahiranAnak->nama : '' }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->jenis_kelahiran) ? $pengajuan->data_pengajuan->jenisKelahiran->nama : '' }}</span>
                 </div>
             </div>
             <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Kelahiran Ke</label>
+                <label class="col-lg-4 fw-bold text-muted">Anak Ke</label>
+                <div class="col-lg-8">
+                    <span class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->anak_ke }}</span>
+                </div>
+            </div>
+            <div class="row mb-7">
+                <label class="col-lg-4 fw-bold text-muted">Tempat Dilahirkan</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->kelahiran_ke_anak }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->tempat_dilahirkan) ? $pengajuan->data_pengajuan->tempatDilahirkan->nama : '' }}</span>
                 </div>
             </div>
             <div class="row mb-7">
                 <label class="col-lg-4 fw-bold text-muted">Penolong Kelahiran</label>
                 <div class="col-lg-8">
                     <span
-                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->penolong_kelahiran_anak) ? $pengajuan->data_pengajuan->penolongKelahiranAnak->nama : '' }}</span>
+                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->penolong_kelahiran) ? $pengajuan->data_pengajuan->penolongKelahiran->nama : '' }}</span>
                 </div>
             </div>
             <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Berat Bayi</label>
+                <label class="col-lg-4 fw-bold text-muted">Sebab Lahir Mati</label>
                 <div class="col-lg-8">
-                    <span class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->berat_bayi_anak }}
-                        KG</span>
+                    <span class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->sebab_lahir_mati }}
+                    </span>
                 </div>
             </div>
             <div class="row mb-7">
-                <label class="col-lg-4 fw-bold text-muted">Panjang Bayi</label>
+                <label class="col-lg-4 fw-bold text-muted">Yang Menentukan</label>
                 <div class="col-lg-8">
-                    <span class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->panjang_bayi_anak }}
-                        CM</span>
+                    <span
+                        class="fw-bolder fs-6 text-gray-800">{{ !empty($pengajuan->data_pengajuan->yang_menentukan) ? $pengajuan->data_pengajuan->yangMenentukan->nama : '' }}</span>
+                </div>
+            </div>
+            <div class="row mb-7">
+                <label class="col-lg-4 fw-bold text-muted">Tempat Kelahiran</label>
+                <div class="col-lg-8">
+                    <span class="fw-bolder fs-6 text-gray-800">{{ $pengajuan->data_pengajuan->tempat_kelahiran }}
+                    </span>
                 </div>
             </div>
         </div>

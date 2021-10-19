@@ -6,7 +6,7 @@
         </div>
     </div>
     <div id="kt_account_profile_details" class="collapse show">
-        <form action="{{ url('app/layanan') }}/{{ $layanan->url }}" id="form-pengajuan-layanan"
+        <form action="{{ url('app/layanan/store') }}/{{ $layanan->url }}" id="form-pengajuan-layanan"
             class="form" method="POST">
             @csrf
             <input type="hidden" id="url-layanan" value="{{ $layanan->url }}">

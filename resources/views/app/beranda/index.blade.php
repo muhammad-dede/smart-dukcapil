@@ -54,7 +54,7 @@
                                     </span>
                                 </div>
                                 <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Ubah Profil">
-                                    <a href="{{ url('app/profil/edit') }}" class="btn btn-sm btn-light-primary">Edit</a>
+                                    <a href="{{ url('app/profil') }}" class="btn btn-sm btn-light-primary">Edit</a>
                                 </span>
                             </div>
                             <div class="separator"></div>
@@ -116,9 +116,6 @@
                                 </div>
                                 <div class="card-body p-9 pt-4">
                                     @forelse ($data_pengajuan as $pengajuan)
-                                        @php
-                                            $status_pengajuan = get_status_pengajuan($pengajuan->id);
-                                        @endphp
                                         <div class="d-flex flex-stack position-relative mt-6">
                                             <div class="position-absolute h-100 w-4px bg-secondary rounded top-0 start-0">
                                             </div>
@@ -126,7 +123,7 @@
                                                 <div class="fs-7 mb-1">
                                                     {{ \Carbon\Carbon::parse($pengajuan->tgl)->isoFormat('dddd, D MMMM Y') }}
                                                 </div>
-                                                <a href="{{ url('app/layanan/detail') }}/{{ $pengajuan->id }}"
+                                                <a href="{{ url('app/layanan/show') }}/{{ $pengajuan->id }}"
                                                     class="fs-5 fw-bolder text-dark text-hover-primary mb-2">Layanan
                                                     {{ $pengajuan->layanan->layanan }}</a>
                                                 <div class="fs-7 text-muted">Status pengajuan &nbsp;:&nbsp;
@@ -134,7 +131,7 @@
                                                         class="text-{{ get_status_pengajuan($pengajuan->id)->color }}">{{ get_status_pengajuan($pengajuan->id)->status }}</span>
                                                 </div>
                                             </div>
-                                            <a href="{{ url('app/layanan/detail') }}/{{ $pengajuan->id }}"
+                                            <a href="{{ url('app/layanan/show') }}/{{ $pengajuan->id }}"
                                                 class="btn btn-light bnt-active-light-primary btn-sm">Detail</a>
                                         </div>
                                     @empty

@@ -180,14 +180,14 @@
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">
                                             {{ auth()->user()->nama_lengkap }} </div>
-                                        <a href="{{ url('app/profil/edit') }}"
+                                        <a href="{{ url('app/profil') }}"
                                             class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="{{ url('app/profil/edit') }}" class="menu-link px-5">Edit Profil Saya</a>
+                                <a href="{{ url('app/profil') }}" class="menu-link px-5">Profil Saya</a>
                             </div>
                             <div class="menu-item px-5">
                                 <a href="{{ url('logout') }}" class="menu-link px-5 text-danger"
