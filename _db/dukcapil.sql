@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 17 Okt 2021 pada 15.54
+-- Waktu pembuatan: 20 Okt 2021 pada 14.01
 -- Versi server: 5.7.33
 -- Versi PHP: 7.4.19
 
@@ -67,7 +67,7 @@ CREATE TABLE `data_kelahiran` (
 --
 
 INSERT INTO `data_kelahiran` (`id`, `id_pelapor`, `nama_anak`, `jenis_kelamin_anak`, `tmpt_dilahirkan_anak`, `tmpt_kelahiran_anak`, `hari_lahir_anak`, `tgl_lahir_anak`, `waktu_lahir_anak`, `jenis_kelahiran_anak`, `kelahiran_ke_anak`, `penolong_kelahiran_anak`, `berat_bayi_anak`, `panjang_bayi_anak`, `nama_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `kewarganegaraan_ayah`, `nama_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `kewarganegaraan_ibu`, `nama_saksi_1`, `nik_saksi_1`, `no_kk_saksi_1`, `kewarganegaraan_saksi_1`, `nama_saksi_2`, `nik_saksi_2`, `no_kk_saksi_2`, `kewarganegaraan_saksi_2`) VALUES
-(1, 1, 'Muhammad Nuryana Ramadhan', 'L', '2', 'Cilegon', '3', '2020-12-13', '12:12:00', '1', '2', '2', '1.2', 40, 'Afifi Nurfengi', '3604092401760006', 'Serang', '1995-12-19', 'ID', 'Eti Suhesti', '3604090104780003', 'Serang', '1996-12-12', 'ID', 'Abdi', '3604183626312312', '3604213798112312', 'ID', 'Dede', '3604213798112315', '3604183626312313', 'ID');
+(1, 1, 'Budi Riyandi', 'L', '2', 'Cilegon', '2', '2021-10-18', '12:12:00', '1', '1', '1', '0.8', 20, 'Abdi', '3604092401760003', 'Serang', '1997-12-12', 'ID', 'Fitria', '3604090104780004', 'Serang', '1998-12-12', 'ID', 'Riky', '3604183626312312', '3604213798112312', 'ID', 'Dede', '3604213798112315', '3604183626312313', 'ID');
 
 -- --------------------------------------------------------
 
@@ -104,6 +104,13 @@ CREATE TABLE `data_kematian` (
   `no_kk_saksi_2` char(20) DEFAULT NULL,
   `kewarganegaraan_saksi_2` char(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_kematian`
+--
+
+INSERT INTO `data_kematian` (`id`, `id_pelapor`, `nik_kematian`, `nama_kematian`, `tgl_kematian`, `pukul_kematian`, `sebab_kematian`, `tempat_kematian`, `menerangkan_kematian`, `nama_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `kewarganegaraan_ayah`, `nama_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `kewarganegaraan_ibu`, `nama_saksi_1`, `nik_saksi_1`, `no_kk_saksi_1`, `kewarganegaraan_saksi_1`, `nama_saksi_2`, `nik_saksi_2`, `no_kk_saksi_2`, `kewarganegaraan_saksi_2`) VALUES
+(1, 1, '123', 'As', '2021-10-19', '09:00:00', '1', 'Serang', '1', 'Afifi Nurfengi', '3604092301770003', 'Serang', '2021-10-19', 'AE', 'Eti Suhesti', '3604090104780005', 'Serang', '2021-10-19', 'AE', 'Rizky', '3604183626312312', '3604213798112312', 'AE', 'Dede', '3604213798112315', '3604183626312313', 'AD');
 
 -- --------------------------------------------------------
 
@@ -149,7 +156,54 @@ CREATE TABLE `data_lahir_mati` (
 --
 
 INSERT INTO `data_lahir_mati` (`id`, `id_pelapor`, `lamanya_dalam_kandungan`, `jenis_kelamin`, `tgl_lahir_mati`, `jenis_kelahiran`, `anak_ke`, `tempat_dilahirkan`, `penolong_kelahiran`, `sebab_lahir_mati`, `yang_menentukan`, `tempat_kelahiran`, `nama_ayah`, `nik_ayah`, `tempat_lahir_ayah`, `tgl_lahir_ayah`, `kewarganegaraan_ayah`, `nama_ibu`, `nik_ibu`, `tempat_lahir_ibu`, `tgl_lahir_ibu`, `kewarganegaraan_ibu`, `nama_saksi_1`, `nik_saksi_1`, `no_kk_saksi_1`, `kewarganegaraan_saksi_1`, `nama_saksi_2`, `nik_saksi_2`, `no_kk_saksi_2`, `kewarganegaraan_saksi_2`) VALUES
-(1, 1, '01', 'L', '2021-10-17', '1', '1', '1', '1', 'Pendarahan', '2', 'Cilegon', 'Abdi', '3604092301770004', 'Cilegon', '1995-10-17', 'ID', 'Fitria', '3604090104780005', 'Bandung', '1996-10-17', 'ID', 'Rizky', '3604183626312312', '3604213798112312', 'ID', 'Dede', '3604213798112315', '3604183626312313', 'ID');
+(1, 1, '01', 'L', '2021-10-17', '1', '1', '2', '1', 'Pendarahan', '2', 'Cilegon', 'Reza', '3604092401760006', 'Serang', '1995-12-12', 'ID', 'Fitri', '3604090104780005', 'Bandung', '1996-12-12', 'ID', 'Rizky', '3604183626312312', '3604213798112312', 'ID', 'Dede', '3604213798112315', '3604183626312313', 'ID');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+--
+
+CREATE TABLE `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `jenis_peristiwa_penting` char(12) DEFAULT NULL,
+  `nomor_surat_keterangan_pelaporan_perwakilan_ri` char(50) DEFAULT NULL,
+  `tgl_surat_keterangan_pelaporan_perwakilan_ri` date DEFAULT NULL,
+  `kantor_perwakilan_yang_melakukan_pencatatan` varchar(50) DEFAULT NULL,
+  `nomor_bukti_pencatatan_sipil_dari_negara_setempat` char(50) DEFAULT NULL,
+  `tgl_penerbitan_dari_negara_setempat` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+--
+
+INSERT INTO `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri` (`id`, `id_pelapor`, `jenis_peristiwa_penting`, `nomor_surat_keterangan_pelaporan_perwakilan_ri`, `tgl_surat_keterangan_pelaporan_perwakilan_ri`, `kantor_perwakilan_yang_melakukan_pencatatan`, `nomor_bukti_pencatatan_sipil_dari_negara_setempat`, `tgl_penerbitan_dari_negara_setempat`) VALUES
+(1, 1, '2', '12345', '2021-10-20', 'Cilegon', '12345', '2021-10-20');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pembatalan_akta`
+--
+
+CREATE TABLE `data_pembatalan_akta` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `akta_yang_dibatalkan` varchar(50) DEFAULT NULL,
+  `nomor_akta_yang_dibatalkan` char(50) DEFAULT NULL,
+  `nama_pengadilan` varchar(50) DEFAULT NULL,
+  `nomor_putusan_pengadilan` char(50) DEFAULT NULL,
+  `tgl_putusan_pengadilan` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pembatalan_akta`
+--
+
+INSERT INTO `data_pembatalan_akta` (`id`, `id_pelapor`, `akta_yang_dibatalkan`, `nomor_akta_yang_dibatalkan`, `nama_pengadilan`, `nomor_putusan_pengadilan`, `tgl_putusan_pengadilan`) VALUES
+(1, 1, 'Akta Lahir', '12334', 'Pengadilan Negeri Agama Cilegon', '12345', '2021-10-20');
 
 -- --------------------------------------------------------
 
@@ -173,6 +227,13 @@ CREATE TABLE `data_pembatalan_perceraian` (
   `tgl_surat_panitera_pengadilan` date DEFAULT NULL,
   `tgl_melapor` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pembatalan_perceraian`
+--
+
+INSERT INTO `data_pembatalan_perceraian` (`id`, `id_pelapor`, `no_akta_perceraian`, `tgl_akta_perceraian`, `tgl_pelaporan_perceraian_luar_negeri`, `no_akta_perkawinan`, `tgl_akta_perkawinan`, `tempat_pencatatan_perkawinan`, `nama_pengadilan`, `tgl_putusan_pengadilan`, `no_putusan_pengadilan`, `no_surat_panitera_pengadilan`, `tgl_surat_panitera_pengadilan`, `tgl_melapor`) VALUES
+(1, 1, '12345', '2021-10-19', '2021-10-19', '1238123', '2021-10-19', 'Pengadilan Negeri Agama Cilegon', 'Pengadilan Negeri Agama Cilegon', '2021-10-19', '2163861373', '24122221323', '2021-10-19', '2021-10-19');
 
 -- --------------------------------------------------------
 
@@ -218,6 +279,162 @@ CREATE TABLE `data_pembatalan_perkawinan` (
   `jumlah_anak` char(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `data_pembatalan_perkawinan`
+--
+
+INSERT INTO `data_pembatalan_perkawinan` (`id`, `id_pelapor`, `tgl_perkawinan`, `no_akta_perkawinan`, `tgl_akta_perkawinan`, `nama_pengadilan_pembatalan`, `no_putusan_pengadilan`, `tgl_putusan_pengadilan`, `tgl_pelaporan_perkawinan_luar_negeri`, `nik_ayah_dari_suami`, `nama_ayah_dari_suami`, `nik_ibu_dari_suami`, `nama_ibu_dari_suami`, `nik_ayah_dari_istri`, `nama_ayah_dari_istri`, `nik_ibu_dari_istri`, `nama_ibu_dari_istri`, `status_perkawinan_sebelum_kawin`, `perkawinan_yang_ke`, `istri_yang_ke`, `tgl_pemberkatan_perkawinan`, `tgl_melapor`, `jam_pelaporan`, `agama_kepercayaan`, `nama_organisasi_kepercayaan`, `nama_pengadilan`, `no_penetapan_pengadilan`, `tgl_penepatan_pengadilan`, `nama_pemuka_agama`, `no_surat_izin_dari_perwakilan`, `no_passport`, `perjanjian_perkawinan`, `no_akta_notaris`, `tgl_akta_notaris`, `jumlah_anak`) VALUES
+(1, 1, '2021-07-31', '123456789', '2021-09-30', 'PENGADILAN AGAMA CILEGON', '2163861373', '2021-10-12', '2021-10-19', '3604092345670003', 'Asmawi', '3604092345670007', 'Lilis', '3604092345670012', 'Asmawi Senior', '3604092345670013', 'Lilis Senior', '1', '1', '1', '2021-09-01', '2021-09-15', '08:00:00', '1', 'FPI', 'Pengadilan Negeri Agama Cilegon', '12312412413', '2021-09-15', 'Ustadz Muhi', '2131234123123', '21312312asdas', 'Dede, S.H', '213123123123', '2021-10-16', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pembetulan_akta`
+--
+
+CREATE TABLE `data_pembetulan_akta` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nomor_akta_yang_akan_dibetulkan` char(50) DEFAULT NULL,
+  `nama_ayah_ibu_wali` varchar(200) DEFAULT NULL,
+  `nik_ayah_ibu_wali` char(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pembetulan_akta`
+--
+
+INSERT INTO `data_pembetulan_akta` (`id`, `id_pelapor`, `nomor_akta_yang_akan_dibetulkan`, `nama_ayah_ibu_wali`, `nik_ayah_ibu_wali`) VALUES
+(1, 1, '123345', 'Asdf', '1234567891234567');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pencatatan_peristiwa_penting_lainnya`
+--
+
+CREATE TABLE `data_pencatatan_peristiwa_penting_lainnya` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `jenis_kelamin_baru` enum('L','P') DEFAULT NULL,
+  `jenis_kelamin_lama` enum('L','P') DEFAULT NULL,
+  `nomor_penetapan_pengadilan` char(50) DEFAULT NULL,
+  `tgl_penetapan_pengadilan` date DEFAULT NULL,
+  `nama_lembaga_pengadilan` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pencatatan_peristiwa_penting_lainnya`
+--
+
+INSERT INTO `data_pencatatan_peristiwa_penting_lainnya` (`id`, `id_pelapor`, `nomor_akta_kelahiran`, `jenis_kelamin_baru`, `jenis_kelamin_lama`, `nomor_penetapan_pengadilan`, `tgl_penetapan_pengadilan`, `nama_lembaga_pengadilan`) VALUES
+(3, 1, '12345', 'L', 'P', '1234', '2021-10-20', 'Dinas Agama');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pengakuan_anak`
+--
+
+CREATE TABLE `data_pengakuan_anak` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `tgl_penerbitan_akta_kelahiran` date DEFAULT NULL,
+  `dinas_yang_menerbitkan_akta_kelahiran` varchar(200) DEFAULT NULL,
+  `tgl_kelahiran_anak` date DEFAULT NULL,
+  `tgl_perkawinan_agama` date DEFAULT NULL,
+  `nama_ibu_kandung` varchar(200) DEFAULT NULL,
+  `nik_ibu_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ibu` char(12) DEFAULT NULL,
+  `nama_ayah_kandung` varchar(200) DEFAULT NULL,
+  `nik_ayah_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ayah` char(12) DEFAULT NULL,
+  `tgl_penetapan_pengadilan` date DEFAULT NULL,
+  `nomor_penetapan_pengadilan` char(50) DEFAULT NULL,
+  `nama_lembaga_pengadilan` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pengakuan_anak`
+--
+
+INSERT INTO `data_pengakuan_anak` (`id`, `id_pelapor`, `nomor_akta_kelahiran`, `tgl_penerbitan_akta_kelahiran`, `dinas_yang_menerbitkan_akta_kelahiran`, `tgl_kelahiran_anak`, `tgl_perkawinan_agama`, `nama_ibu_kandung`, `nik_ibu_kandung`, `kewarganegaraan_ibu`, `nama_ayah_kandung`, `nik_ayah_kandung`, `kewarganegaraan_ayah`, `tgl_penetapan_pengadilan`, `nomor_penetapan_pengadilan`, `nama_lembaga_pengadilan`) VALUES
+(1, 1, '12345', '2021-10-20', 'Kabupaten Serang', '2021-10-20', '2021-10-20', 'Eti Suhesti', '1234567891234567', 'IL', 'Afifi Nurfengi', '1234567891234567', 'AF', '2021-10-20', '1234', 'Dinas Agama');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pengangkatan_anak`
+--
+
+CREATE TABLE `data_pengangkatan_anak` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nama_anak_angkat` varchar(200) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `tgl_penerbitan_akta_kelahiran` date DEFAULT NULL,
+  `dinas_yang_menerbitkan_akta_kelahiran` varchar(200) DEFAULT NULL,
+  `nama_ibu_kandung` varchar(200) DEFAULT NULL,
+  `nik_ibu_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ibu` char(12) DEFAULT NULL,
+  `nama_ayah_kandung` varchar(200) DEFAULT NULL,
+  `nik_ayah_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ayah` char(12) DEFAULT NULL,
+  `nama_ibu_angkat` varchar(200) DEFAULT NULL,
+  `nik_ibu_angkat` char(20) DEFAULT NULL,
+  `nomor_passport_ibu` char(50) DEFAULT NULL,
+  `nama_ayah_angkat` varchar(200) DEFAULT NULL,
+  `nik_ayah_angkat` char(20) DEFAULT NULL,
+  `nomor_passport_ayah` char(50) DEFAULT NULL,
+  `nama_pengadilan` varchar(200) DEFAULT NULL,
+  `tgl_penetapan_pengadilan` date DEFAULT NULL,
+  `nomor_penetapan_pengadilan` char(50) DEFAULT NULL,
+  `nama_lembaga_penetapan_pengadilan` varchar(200) DEFAULT NULL,
+  `tempat_lembaga_penetapan_pengadilan` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pengangkatan_anak`
+--
+
+INSERT INTO `data_pengangkatan_anak` (`id`, `id_pelapor`, `nama_anak_angkat`, `nomor_akta_kelahiran`, `tgl_penerbitan_akta_kelahiran`, `dinas_yang_menerbitkan_akta_kelahiran`, `nama_ibu_kandung`, `nik_ibu_kandung`, `kewarganegaraan_ibu`, `nama_ayah_kandung`, `nik_ayah_kandung`, `kewarganegaraan_ayah`, `nama_ibu_angkat`, `nik_ibu_angkat`, `nomor_passport_ibu`, `nama_ayah_angkat`, `nik_ayah_angkat`, `nomor_passport_ayah`, `nama_pengadilan`, `tgl_penetapan_pengadilan`, `nomor_penetapan_pengadilan`, `nama_lembaga_penetapan_pengadilan`, `tempat_lembaga_penetapan_pengadilan`) VALUES
+(2, 1, 'As', '12345', '2021-10-20', 'Kabupaten Serang', 'Eti Suhesti', '1234567891234567', 'ID', 'Afifi Nurfengi', '1234567891234567', 'ID', 'Lilis', '1234567891234567', '1234', 'As', '1234567891234567', '1233', 'Kabupaten Serang', '2021-10-20', '1234', 'Dinas Agama', 'Serang');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_pengesahan_anak`
+--
+
+CREATE TABLE `data_pengesahan_anak` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `tgl_penerbitan_akta_kelahiran` date DEFAULT NULL,
+  `dinas_yang_menerbitkan_akta_kelahiran` varchar(50) DEFAULT NULL,
+  `tgl_kelahiran_anak` date DEFAULT NULL,
+  `tgl_perkawinan_agama` date DEFAULT NULL,
+  `tgl_akta_perkawinan` date DEFAULT NULL,
+  `nama_ibu_kandung` varchar(200) DEFAULT NULL,
+  `nik_ibu_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ibu` char(12) DEFAULT NULL,
+  `nama_ayah_kandung` varchar(200) DEFAULT NULL,
+  `nik_ayah_kandung` char(20) DEFAULT NULL,
+  `kewarganegaraan_ayah` char(12) DEFAULT NULL,
+  `tgl_penetapan_pengadilan` date DEFAULT NULL,
+  `nomor_penetapan_pengadilan` char(50) DEFAULT NULL,
+  `nama_lembaga_pengadilan` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_pengesahan_anak`
+--
+
+INSERT INTO `data_pengesahan_anak` (`id`, `id_pelapor`, `nomor_akta_kelahiran`, `tgl_penerbitan_akta_kelahiran`, `dinas_yang_menerbitkan_akta_kelahiran`, `tgl_kelahiran_anak`, `tgl_perkawinan_agama`, `tgl_akta_perkawinan`, `nama_ibu_kandung`, `nik_ibu_kandung`, `kewarganegaraan_ibu`, `nama_ayah_kandung`, `nik_ayah_kandung`, `kewarganegaraan_ayah`, `tgl_penetapan_pengadilan`, `nomor_penetapan_pengadilan`, `nama_lembaga_pengadilan`) VALUES
+(1, 1, '12345', '2021-10-20', 'Kabupaten Serang', '2021-10-20', '2021-10-20', '2021-10-20', 'Eti Suhesti', '1234567891234567', 'ID', 'Afifi Nurfengi', '1234567891234567', 'AI', '2021-10-20', '1234', 'Dinas Agama');
+
 -- --------------------------------------------------------
 
 --
@@ -237,6 +454,13 @@ CREATE TABLE `data_perceraian` (
   `tgl_surat_panitera_pengadilan` date DEFAULT NULL,
   `tgl_melapor` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_perceraian`
+--
+
+INSERT INTO `data_perceraian` (`id`, `id_pelapor`, `no_akta_perkawinan`, `tgl_akta_perkawinan`, `tempat_pencatatan_perkawinan`, `nama_pengadilan`, `tgl_putusan_pengadilan`, `no_putusan_pengadilan`, `no_surat_panitera_pengadilan`, `tgl_surat_panitera_pengadilan`, `tgl_melapor`) VALUES
+(1, 1, '1238123', '2021-10-19', 'Pengadilan Negeri Agama Cilegon', 'Pengadilan Negeri Agama Cilegon', '2021-10-19', '2163861373', '24122221323', '2021-10-19', '2021-10-19');
 
 -- --------------------------------------------------------
 
@@ -275,6 +499,72 @@ CREATE TABLE `data_perkawinan` (
   `jumlah_anak` char(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `data_perkawinan`
+--
+
+INSERT INTO `data_perkawinan` (`id`, `id_pelapor`, `nik_ayah_dari_suami`, `nama_ayah_dari_suami`, `nik_ibu_dari_suami`, `nama_ibu_dari_suami`, `nik_ayah_dari_istri`, `nama_ayah_dari_istri`, `nik_ibu_dari_istri`, `nama_ibu_dari_istri`, `status_perkawinan_sebelum_kawin`, `perkawinan_yang_ke`, `istri_yang_ke`, `tgl_pemberkatan_perkawinan`, `tgl_melapor`, `jam_pelaporan`, `agama_kepercayaan`, `nama_organisasi_kepercayaan`, `nama_pengadilan`, `no_penetapan_pengadilan`, `tgl_penepatan_pengadilan`, `nama_pemuka_agama`, `no_surat_izin_dari_perwakilan`, `no_passport`, `perjanjian_perkawinan`, `no_akta_notaris`, `tgl_akta_notaris`, `jumlah_anak`) VALUES
+(1, 1, '3604092345670003', 'Asmawi', '3604092345670007', 'Lilis', '3604092345670012', 'Asmawi Senior', '3604092345670013', 'Lilis Senior', '1', '1', '2', '2021-10-17', '2021-10-18', '12:12:00', '1', '-', 'Pengadilan Negeri Agama Cilegon', '12312412413', '2021-10-19', 'Ustadz Muhi', '2131234123123', '21312312asdas', 'Dede, S.H', '213123123123', '2021-10-17', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_perubahan_nama`
+--
+
+CREATE TABLE `data_perubahan_nama` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `nama_lama` varchar(200) DEFAULT NULL,
+  `nama_baru` varchar(200) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `nama_ibu` varchar(200) DEFAULT NULL,
+  `nik_ibu` char(20) DEFAULT NULL,
+  `kewarganegaraan` char(12) DEFAULT NULL,
+  `nomor_penetapan_pengadilan` char(50) DEFAULT NULL,
+  `tgl_penetapan_pengadilan` date DEFAULT NULL,
+  `nama_lembaga_pengadilan` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_perubahan_nama`
+--
+
+INSERT INTO `data_perubahan_nama` (`id`, `id_pelapor`, `nama_lama`, `nama_baru`, `nomor_akta_kelahiran`, `nama_ibu`, `nik_ibu`, `kewarganegaraan`, `nomor_penetapan_pengadilan`, `tgl_penetapan_pengadilan`, `nama_lembaga_pengadilan`) VALUES
+(1, 1, 'As', 'Sd', '12345', '', NULL, 'AD', '1234', '2021-10-20', 'Dinas Agama');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_perubahan_status_kewarganegaraan`
+--
+
+CREATE TABLE `data_perubahan_status_kewarganegaraan` (
+  `id` int(11) NOT NULL,
+  `id_pelapor` int(11) DEFAULT NULL,
+  `kewarganegaraan_baru` char(12) DEFAULT NULL,
+  `nomor_akta_kelahiran` char(50) DEFAULT NULL,
+  `nomor_akta_perkawinan` char(50) DEFAULT NULL,
+  `nama_suami_istri` varchar(200) DEFAULT NULL,
+  `nik_suami_istri` char(20) DEFAULT NULL,
+  `nomor_passport` char(50) DEFAULT NULL,
+  `nomor_afidavit` char(50) DEFAULT NULL,
+  `nomor_keputusan_presiden` char(50) DEFAULT NULL,
+  `tgl_keputusan_presiden` date DEFAULT NULL,
+  `nomor_berita_acara_sumpah` char(50) DEFAULT NULL,
+  `nama_jabatan_yang_menerbitkan_bas` varchar(50) DEFAULT NULL,
+  `tgl_penerbitan_sumpah_janji` date DEFAULT NULL,
+  `nomor_keputusan_menteri` char(50) DEFAULT NULL,
+  `tgl_keputusan_menteri` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_perubahan_status_kewarganegaraan`
+--
+
+INSERT INTO `data_perubahan_status_kewarganegaraan` (`id`, `id_pelapor`, `kewarganegaraan_baru`, `nomor_akta_kelahiran`, `nomor_akta_perkawinan`, `nama_suami_istri`, `nik_suami_istri`, `nomor_passport`, `nomor_afidavit`, `nomor_keputusan_presiden`, `tgl_keputusan_presiden`, `nomor_berita_acara_sumpah`, `nama_jabatan_yang_menerbitkan_bas`, `tgl_penerbitan_sumpah_janji`, `nomor_keputusan_menteri`, `tgl_keputusan_menteri`) VALUES
+(1, 1, 'Indonesia', '12345', '1234', 'Asd', '1234567891234567', '12345', '12334', '123345', '2021-10-20', '1234', 'Asdf', '2021-10-20', '12345', '2021-10-20');
+
 -- --------------------------------------------------------
 
 --
@@ -307,7 +597,7 @@ INSERT INTO `layanan` (`id`, `layanan`, `url`, `icon`, `color`, `penting`, `akti
 (9, 'Pengakuan Anak', 'pengakuan-anak', 'fa fa-file-alt', '#b2904f', 0, 1),
 (10, 'Pengesahan Anak', 'pengesahan-anak', 'fa fa-file-alt', '#b20969', 0, 1),
 (11, 'Perubahan Nama', 'perubahan-nama', 'fa fa-file-alt', '#ff5828', 0, 1),
-(12, 'Perubahan Status keluarga', 'perubahan-status-keluarga', 'fa fa-file-alt', '#29cc61', 0, 1),
+(12, 'Perubahan Status Kewarganegaraan', 'perubahan-status-kewarganegaraan', 'fa fa-file-alt', '#29cc61', 0, 1),
 (13, 'Pencatatan Peristiwa Penting Lainnya', 'pencatatan-peristiwa-penting-lainnya', 'fa fa-file-alt', '#e40494', 0, 1),
 (14, 'Pembetulan Akta', 'pembetulan-akta', 'fa fa-file-alt', '#04e494', 0, 1),
 (15, 'Pembatalan Akta', 'pembatalan-akta', 'fa fa-file-alt', '#0494e4', 0, 1),
@@ -83687,6 +83977,28 @@ INSERT INTO `m_pendidikan` (`kode`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `m_peristiwa_penting`
+--
+
+CREATE TABLE `m_peristiwa_penting` (
+  `kode` char(12) NOT NULL,
+  `nama` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `m_peristiwa_penting`
+--
+
+INSERT INTO `m_peristiwa_penting` (`kode`, `nama`) VALUES
+('1', 'Kelahiran'),
+('2', 'Perkawinan'),
+('3', 'Perceraian'),
+('4', 'Kematian'),
+('5', 'Pengangkatan Anak');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `m_provinsi`
 --
 
@@ -83918,7 +84230,7 @@ CREATE TABLE `pelapor` (
 --
 
 INSERT INTO `pelapor` (`id`, `nik`, `no_kk`, `nama_lengkap`, `tgl_lahir`, `tempat_lahir`, `nama_ibu`, `telp`, `kewarganegaraan`, `username`, `email`, `email_verified_at`, `password`, `profil`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '3604092410910003', '3604091212120007', 'Muhammad Dede Nuraen', '1991-10-24', 'Serang', 'Eti Suhesti', '081295705672', 'ID', 'bangde', 'm.dedenuraen@gmail.com', NULL, '$2y$10$bS4b0evQ0dMWpAtKhTNvPOuGyFhXOLUXFuHUOWmcj5fIJ64PZ7dke', 'profil-bangde.jpg', 'sL1kq1fYFX1Usr2eOvtLlBNJQ8scYebPm3TCUmOKbhZS9cEW3z6HeOLa0LVh', '2021-10-17 12:37:20', '2021-10-17 15:52:29');
+(1, '3604092410910003', '3604091212120007', 'Muhammad Dede Nuraen', '1991-10-24', 'Serang', 'Eti Suhesti', '081295705672', 'ID', 'bangde', 'm.dedenuraen@gmail.com', NULL, '$2y$10$bS4b0evQ0dMWpAtKhTNvPOuGyFhXOLUXFuHUOWmcj5fIJ64PZ7dke', 'profil-bangde.jpg', 'sL1kq1fYFX1Usr2eOvtLlBNJQ8scYebPm3TCUmOKbhZS9cEW3z6HeOLa0LVh', '2021-10-17 12:37:20', '2021-10-19 09:08:09');
 
 -- --------------------------------------------------------
 
@@ -83944,8 +84256,22 @@ CREATE TABLE `pengajuan` (
 --
 
 INSERT INTO `pengajuan` (`id`, `id_layanan`, `id_pelapor`, `tgl`, `terima`, `id_user`, `data_pengajuan_id`, `data_pengajuan_type`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2021-10-17 12:52:48', NULL, NULL, 1, 'App\\Models\\DataKelahiran', '2021-10-17 12:52:48', '2021-10-17 12:52:48'),
-(2, 2, 1, '2021-10-17 14:05:01', NULL, NULL, 1, 'App\\Models\\DataLahirMati', '2021-10-17 14:05:01', '2021-10-17 14:05:01');
+(1, 1, 1, '2021-10-19 08:14:39', NULL, NULL, 1, 'App\\Models\\DataKelahiran', '2021-10-19 08:14:39', '2021-10-19 08:14:39'),
+(2, 2, 1, '2021-10-19 09:18:37', NULL, NULL, 1, 'App\\Models\\DataLahirMati', '2021-10-19 09:18:37', '2021-10-19 09:18:37'),
+(3, 3, 1, '2021-10-19 09:55:41', NULL, NULL, 1, 'App\\Models\\DataPerkawinan', '2021-10-19 09:55:41', '2021-10-19 09:55:41'),
+(4, 4, 1, '2021-10-19 16:02:17', NULL, NULL, 1, 'App\\Models\\DataPembatalanPerkawinan', '2021-10-19 16:02:17', '2021-10-19 16:02:17'),
+(5, 5, 1, '2021-10-19 16:20:58', NULL, NULL, 1, 'App\\Models\\DataPerceraian', '2021-10-19 16:20:58', '2021-10-19 16:20:58'),
+(6, 6, 1, '2021-10-19 16:28:53', NULL, NULL, 1, 'App\\Models\\DataPembatalanPerceraian', '2021-10-19 16:28:53', '2021-10-19 16:28:53'),
+(7, 7, 1, '2021-10-19 17:09:45', NULL, NULL, 1, 'App\\Models\\DataKematian', '2021-10-19 17:09:45', '2021-10-19 17:09:45'),
+(9, 8, 1, '2021-10-19 19:27:25', NULL, NULL, 2, 'App\\Models\\DataPengangkatanAnak', '2021-10-19 19:27:25', '2021-10-19 19:27:25'),
+(10, 9, 1, '2021-10-19 20:09:59', NULL, NULL, 1, 'App\\Models\\DataPengakuanAnak', '2021-10-19 20:09:59', '2021-10-19 20:09:59'),
+(11, 10, 1, '2021-10-19 21:06:56', NULL, NULL, 1, 'App\\Models\\DataPengesahanAnak', '2021-10-19 21:06:56', '2021-10-19 21:06:56'),
+(12, 11, 1, '2021-10-19 21:42:10', NULL, NULL, 1, 'App\\Models\\DataPerubahanNama', '2021-10-19 21:42:10', '2021-10-19 21:42:10'),
+(15, 13, 1, '2021-10-19 23:52:19', NULL, NULL, 3, 'App\\Models\\DataPencatatanPeristiwaPentingLainnya', '2021-10-19 23:52:19', '2021-10-19 23:52:19'),
+(16, 12, 1, '2021-10-19 23:59:40', NULL, NULL, 1, 'App\\Models\\DataPerubahanStatusKewarganegaraan', '2021-10-19 23:59:40', '2021-10-19 23:59:40'),
+(17, 14, 1, '2021-10-20 12:38:11', NULL, NULL, 1, 'App\\Models\\DataPembetulanAkta', '2021-10-20 12:38:11', '2021-10-20 12:38:11'),
+(18, 15, 1, '2021-10-20 12:55:08', NULL, NULL, 1, 'App\\Models\\DataPembatalanAkta', '2021-10-20 12:55:08', '2021-10-20 12:55:08'),
+(19, 16, 1, '2021-10-20 13:42:34', NULL, NULL, 1, 'App\\Models\\DataPelaporanPencatatanSipilDariLuarWilayahNkri', '2021-10-20 13:42:34', '2021-10-20 13:42:34');
 
 -- --------------------------------------------------------
 
@@ -84064,6 +84390,21 @@ ALTER TABLE `data_lahir_mati`
   ADD KEY `yang_menentukan` (`yang_menentukan`);
 
 --
+-- Indeks untuk tabel `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+--
+ALTER TABLE `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `jenis_peristiwa_penting` (`jenis_peristiwa_penting`);
+
+--
+-- Indeks untuk tabel `data_pembatalan_akta`
+--
+ALTER TABLE `data_pembatalan_akta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`);
+
+--
 -- Indeks untuk tabel `data_pembatalan_perceraian`
 --
 ALTER TABLE `data_pembatalan_perceraian`
@@ -84080,6 +84421,47 @@ ALTER TABLE `data_pembatalan_perkawinan`
   ADD KEY `id_pelapor` (`id_pelapor`);
 
 --
+-- Indeks untuk tabel `data_pembetulan_akta`
+--
+ALTER TABLE `data_pembetulan_akta`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`);
+
+--
+-- Indeks untuk tabel `data_pencatatan_peristiwa_penting_lainnya`
+--
+ALTER TABLE `data_pencatatan_peristiwa_penting_lainnya`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`);
+
+--
+-- Indeks untuk tabel `data_pengakuan_anak`
+--
+ALTER TABLE `data_pengakuan_anak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `kewarganegaraan_ibu` (`kewarganegaraan_ibu`),
+  ADD KEY `kewarganegaraan_ayah` (`kewarganegaraan_ayah`);
+
+--
+-- Indeks untuk tabel `data_pengangkatan_anak`
+--
+ALTER TABLE `data_pengangkatan_anak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `kewarganegaraan_ibu` (`kewarganegaraan_ibu`),
+  ADD KEY `kewarganegaraan_ayah` (`kewarganegaraan_ayah`);
+
+--
+-- Indeks untuk tabel `data_pengesahan_anak`
+--
+ALTER TABLE `data_pengesahan_anak`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `kewarganegaraan_ibu` (`kewarganegaraan_ibu`),
+  ADD KEY `kewarganegaraan_ayah` (`kewarganegaraan_ayah`);
+
+--
 -- Indeks untuk tabel `data_perceraian`
 --
 ALTER TABLE `data_perceraian`
@@ -84094,6 +84476,22 @@ ALTER TABLE `data_perkawinan`
   ADD KEY `status_perkawinan_sebelum_kawin` (`status_perkawinan_sebelum_kawin`),
   ADD KEY `agama_kepercayaan` (`agama_kepercayaan`),
   ADD KEY `id_pelapor` (`id_pelapor`);
+
+--
+-- Indeks untuk tabel `data_perubahan_nama`
+--
+ALTER TABLE `data_perubahan_nama`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `kewarganegaraan` (`kewarganegaraan`);
+
+--
+-- Indeks untuk tabel `data_perubahan_status_kewarganegaraan`
+--
+ALTER TABLE `data_perubahan_status_kewarganegaraan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pelapor` (`id_pelapor`),
+  ADD KEY `kewarganegaraan_baru` (`kewarganegaraan_baru`);
 
 --
 -- Indeks untuk tabel `layanan`
@@ -84180,6 +84578,12 @@ ALTER TABLE `m_pekerjaan`
 -- Indeks untuk tabel `m_pendidikan`
 --
 ALTER TABLE `m_pendidikan`
+  ADD PRIMARY KEY (`kode`);
+
+--
+-- Indeks untuk tabel `m_peristiwa_penting`
+--
+ALTER TABLE `m_peristiwa_penting`
   ADD PRIMARY KEY (`kode`);
 
 --
@@ -84285,7 +84689,7 @@ ALTER TABLE `data_kelahiran`
 -- AUTO_INCREMENT untuk tabel `data_kematian`
 --
 ALTER TABLE `data_kematian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_lahir_mati`
@@ -84294,28 +84698,82 @@ ALTER TABLE `data_lahir_mati`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+--
+ALTER TABLE `data_pelapor_pencatatan_sipil_dari_luar_wilayah_nkri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pembatalan_akta`
+--
+ALTER TABLE `data_pembatalan_akta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `data_pembatalan_perceraian`
 --
 ALTER TABLE `data_pembatalan_perceraian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_pembatalan_perkawinan`
 --
 ALTER TABLE `data_pembatalan_perkawinan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pembetulan_akta`
+--
+ALTER TABLE `data_pembetulan_akta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pencatatan_peristiwa_penting_lainnya`
+--
+ALTER TABLE `data_pencatatan_peristiwa_penting_lainnya`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pengakuan_anak`
+--
+ALTER TABLE `data_pengakuan_anak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pengangkatan_anak`
+--
+ALTER TABLE `data_pengangkatan_anak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_pengesahan_anak`
+--
+ALTER TABLE `data_pengesahan_anak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_perceraian`
 --
 ALTER TABLE `data_perceraian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_perkawinan`
 --
 ALTER TABLE `data_perkawinan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_perubahan_nama`
+--
+ALTER TABLE `data_perubahan_nama`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_perubahan_status_kewarganegaraan`
+--
+ALTER TABLE `data_perubahan_status_kewarganegaraan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `layanan`
@@ -84333,7 +84791,7 @@ ALTER TABLE `pelapor`
 -- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajuan_berkas`
