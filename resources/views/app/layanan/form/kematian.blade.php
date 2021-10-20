@@ -17,11 +17,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nik" type="text" name="nik"
+                            <input id="nik_kematian" type="text" name="nik_kematian"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408020202****" value="{{ old('nik') }}" />
-                            <small class="nik_error text-danger" id="error-text"></small>
-                            @error('nik')
+                                placeholder="Contoh: 360408020202****" value="{{ old('nik_kematian') }}" />
+                            <small class="nik_kematian_error text-danger" id="error-text"></small>
+                            @error('nik_kematian')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -31,11 +31,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lengkap</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_lengkap" type="text" name="nama_lengkap"
+                            <input id="nama_kematian" type="text" name="nama_kematian"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Asmawi"
-                                value="{{ old('nama_lengkap') }}" />
-                            <small class="nama_lengkap_error text-danger" id="error-text"></small>
-                            @error('nama_lengkap')
+                                value="{{ old('nama_kematian') }}" />
+                            <small class="nama_kematian_error text-danger" id="error-text"></small>
+                            @error('nama_kematian')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -61,11 +61,11 @@
                             <span class="required">Waktu Kematian</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="waktu_kematian" type="time" name="waktu_kematian"
+                            <input id="pukul_kematian" type="time" name="pukul_kematian"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: 12:00"
-                                value="{{ old('waktu_kematian') }}" />
-                            <small class="waktu_kematian_error text-danger" id="error-text"></small>
-                            @error('waktu_kematian')
+                                value="{{ old('pukul_kematian') }}" />
+                            <small class="pukul_kematian_error text-danger" id="error-text"></small>
+                            @error('pukul_kematian')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -81,10 +81,10 @@
                                 data-control="select2" data-placeholder="Pilih Sebab Kematian..."
                                 class="form-select form-select-solid form-select-lg fw-bold">
                                 <option value="">Pilih Sebab Kematian...</option>
-                                {{-- @foreach (get_jenis_kelahiran() as $jenis_kelahiran)
-                                    <option value="{{ $jenis_kelahiran->kode }}">{{ $jenis_kelahiran->nama }}
+                                @foreach (get_sebab_kematian() as $sebab_kematian)
+                                    <option value="{{ $sebab_kematian->kode }}">{{ $sebab_kematian->nama }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                             <small class="sebab_kematian_error text-danger" id="error-text"></small>
                             @error('sebab_kematian')
@@ -115,18 +115,19 @@
                             <span class="required">Yang Menerangkan</span>
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <select id="yang_menerangkan" name="yang_menerangkan" aria-label="Pilih Yang Menerangkan"
-                                data-control="select2" data-placeholder="Pilih Yang Menerangkan..."
+                            <select id="menerangkan_kematian" name="menerangkan_kematian"
+                                aria-label="Pilih Yang Menerangkan" data-control="select2"
+                                data-placeholder="Pilih Yang Menerangkan..."
                                 class="form-select form-select-solid form-select-lg fw-bold">
                                 <option value="">Pilih Yang Menerangkan...</option>
-                                {{-- @foreach (get_penolong_kelahiran() as $penolong_kelahiran)
-                                    <option value="{{ $penolong_kelahiran->kode }}">
-                                        {{ $penolong_kelahiran->nama }}
+                                @foreach (get_tenaga_ahli() as $menerangkan_kematian)
+                                    <option value="{{ $menerangkan_kematian->kode }}">
+                                        {{ $menerangkan_kematian->nama }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
-                            <small class="yang_menerangkan_error text-danger" id="error-text"></small>
-                            @error('yang_menerangkan')
+                            <small class="menerangkan_kematian_error text-danger" id="error-text"></small>
+                            @error('menerangkan_kematian')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

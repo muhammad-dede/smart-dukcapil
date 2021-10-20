@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DataPembatalanPerkawinan extends Model
+class DataPengesahanAnak extends Model
 {
     use HasFactory;
 
-    protected $table = 'data_pembatalan_perkawinan';
+    protected $table = 'data_pengesahan_anak';
     protected $primaryKey = 'id';
     public $timestamps = false;
 
@@ -19,14 +19,13 @@ class DataPembatalanPerkawinan extends Model
     {
         return $this->morphOne(Pengajuan::class, 'data_pengajuan');
     }
-
-    public function statusPerkawinanSebelumKawin()
+    public function kewarganegaraanAyah()
     {
-        return $this->belongsTo(_StatusKawin::class, 'status_perkawinan_sebelum_kawin', 'kode');
+        return $this->belongsTo(_Negara::class, 'kewarganegaraan_ayah', 'kode');
     }
 
-    public function agamaKepercayaan()
+    public function kewarganegaraanIbu()
     {
-        return $this->belongsTo(_Agama::class, 'agama_kepercayaan', 'kode');
+        return $this->belongsTo(_Negara::class, 'kewarganegaraan_ibu', 'kode');
     }
 }

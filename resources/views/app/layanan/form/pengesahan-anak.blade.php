@@ -17,11 +17,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Akta Kelahiran</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_lahir" type="text" name="no_akta_lahir"
+                            <input id="nomor_akta_kelahiran" type="text" name="nomor_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_akta_lahir') }}" />
-                            <small class="no_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('no_akta_lahir')
+                                value="{{ old('nomor_akta_kelahiran') }}" />
+                            <small class="nomor_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -32,11 +32,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Penerbitan Akta
                             Lahir</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_terbit_akta_lahir" type="date" name="tgl_terbit_akta_lahir"
+                            <input id="tgl_penerbitan_akta_kelahiran" type="date" name="tgl_penerbitan_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('tgl_terbit_akta_lahir') }}" />
-                            <small class="tgl_terbit_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('tgl_terbit_akta_lahir')
+                                value="{{ old('tgl_penerbitan_akta_kelahiran') }}" />
+                            <small class="tgl_penerbitan_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('tgl_penerbitan_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -47,12 +47,14 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Dinas yang Menerbitkan Akta
                             Lahir</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="dinas_terbit_akta_lahir" type="text" name="dinas_terbit_akta_lahir"
+                            <input id="dinas_yang_menerbitkan_akta_kelahiran" type="text"
+                                name="dinas_yang_menerbitkan_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid"
                                 placeholder="Contoh: Dinas Dukcapil Kota Cilegon"
-                                value="{{ old('dinas_terbit_akta_lahir') }}" />
-                            <small class="dinas_terbit_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('dinas_terbit_akta_lahir')
+                                value="{{ old('dinas_yang_menerbitkan_akta_kelahiran') }}" />
+                            <small class="dinas_yang_menerbitkan_akta_kelahiran_error text-danger"
+                                id="error-text"></small>
+                            @error('dinas_yang_menerbitkan_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -90,11 +92,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Akta Perkawinan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_perkawinan" type="text" name="no_akta_perkawinan"
-                                class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxxx"
-                                value="{{ old('no_akta_perkawinan') }}" />
-                            <small class="no_akta_perkawinan_error text-danger" id="error-text"></small>
-                            @error('no_akta_perkawinan')
+                            <input id="tgl_akta_perkawinan" type="date" name="tgl_akta_perkawinan"
+                                class="form-control form-control-lg form-control-solid" placeholder=""
+                                value="{{ old('tgl_akta_perkawinan') }}" />
+                            <small class="tgl_akta_perkawinan_error text-danger" id="error-text"></small>
+                            @error('tgl_akta_perkawinan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -222,12 +224,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Penetapan Pengadilan
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_penetapan_pengadilan" type="text" name="no_penetapan_pengadilan"
+                            <input id="nomor_penetapan_pengadilan" type="text" name="nomor_penetapan_pengadilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_penetapan_pengadilan') }}" />
+                                value="{{ old('nomor_penetapan_pengadilan') }}" />
 
-                            <small class="no_penetapan_pengadilan_error text-danger" id="error-text"></small>
-                            @error('no_penetapan_pengadilan')
+                            <small class="nomor_penetapan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nomor_penetapan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -235,14 +237,13 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lembaga Penetapan
-                            Pengadilan</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lembaga Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_lembaga_penetapan" type="text" name="nama_lembaga_penetapan"
+                            <input id="nama_lembaga_pengadilan" type="text" name="nama_lembaga_pengadilan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('nama_lembaga_penetapan') }}" />
-                            <small class="nama_lembaga_penetapan_error text-danger" id="error-text"></small>
-                            @error('nama_lembaga_penetapan')
+                                value="{{ old('nama_lembaga_pengadilan') }}" />
+                            <small class="nama_lembaga_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nama_lembaga_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

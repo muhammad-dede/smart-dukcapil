@@ -12,15 +12,15 @@
             <input type="hidden" id="url-layanan" value="{{ $layanan->url }}">
             <div class="card-body border-top p-9">
                 {{-- Data Anak --}}
-                <div id="data-peristiwa-penting">
+                <div id="data-peristiwa-penting-lainnya">
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">No Akta Kelahiran</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Akta Kelahiran</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_lahir" type="text" name="no_akta_lahir"
+                            <input id="nomor_akta_kelahiran" type="text" name="nomor_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('nama_anak') }}" />
-                            <small class="no_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('no_akta_lahir')
+                                value="{{ old('nomor_akta_kelahiran') }}" />
+                            <small class="nomor_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -74,6 +74,22 @@
                         </div>
                     </div>
                     <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Penetapan Pengadilan
+                        </label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="nomor_penetapan_pengadilan" type="text" name="nomor_penetapan_pengadilan"
+                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
+                                value="{{ old('nomor_penetapan_pengadilan') }}" />
+
+                            <small class="nomor_penetapan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nomor_penetapan_pengadilan')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Penetapan
                             Pengadilan</label>
                         <div class="col-lg-8 fv-row">
@@ -89,30 +105,13 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Penetapan Pengadilan
-                        </label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lembaga Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_penetapan_pengadilan" type="text" name="no_penetapan_pengadilan"
-                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_penetapan_pengadilan') }}" />
-
-                            <small class="no_penetapan_pengadilan_error text-danger" id="error-text"></small>
-                            @error('no_penetapan_pengadilan')
-                                <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lembaga Penetapan
-                            Pengadilan</label>
-                        <div class="col-lg-8 fv-row">
-                            <input id="nama_lembaga_penetapan" type="text" name="nama_lembaga_penetapan"
+                            <input id="nama_lembaga_pengadilan" type="text" name="nama_lembaga_pengadilan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('nama_lembaga_penetapan') }}" />
-                            <small class="nama_lembaga_penetapan_error text-danger" id="error-text"></small>
-                            @error('nama_lembaga_penetapan')
+                                value="{{ old('nama_lembaga_pengadilan') }}" />
+                            <small class="nama_lembaga_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nama_lembaga_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

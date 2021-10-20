@@ -20,7 +20,7 @@
                             <input id="nama_anak_angkat" type="text" name="nama_anak_angkat"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Riwan"
                                 value="{{ old('nama_anak_angkat') }}" />
-                            <small class="nama_anak_angkat text-danger" id="error-text"></small>
+                            <small class="nama_anak_angkat_error text-danger" id="error-text"></small>
                             @error('nik_ayah_suami')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -31,11 +31,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Akta Kelahiran</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_lahir" type="text" name="no_akta_lahir"
+                            <input id="nomor_akta_kelahiran" type="text" name="nomor_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_akta_lahir') }}" />
-                            <small class="no_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('no_akta_lahir')
+                                value="{{ old('nomor_akta_kelahiran') }}" />
+                            <small class="nomor_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -46,11 +46,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Penerbitan Akta
                             Lahir</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_terbit_akta_lahir" type="date" name="tgl_terbit_akta_lahir"
+                            <input id="tgl_penerbitan_akta_kelahiran" type="date" name="tgl_penerbitan_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('tgl_terbit_akta_lahir') }}" />
-                            <small class="tgl_terbit_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('tgl_terbit_akta_lahir')
+                                value="{{ old('tgl_penerbitan_akta_kelahiran') }}" />
+                            <small class="tgl_penerbitan_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('tgl_penerbitan_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -61,12 +61,14 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Dinas yang Menerbitkan Akta
                             Lahir</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="dinas_terbit_akta_lahir" type="text" name="dinas_terbit_akta_lahir"
+                            <input id="dinas_yang_menerbitkan_akta_kelahiran" type="text"
+                                name="dinas_yang_menerbitkan_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid"
                                 placeholder="Contoh: Dinas Dukcapil Kota Cilegon"
-                                value="{{ old('dinas_terbit_akta_lahir') }}" />
-                            <small class="dinas_terbit_akta_lahir_error text-danger" id="error-text"></small>
-                            @error('dinas_terbit_akta_lahir')
+                                value="{{ old('dinas_yang_menerbitkan_akta_kelahiran') }}" />
+                            <small class="dinas_yang_menerbitkan_akta_kelahiran_error text-danger"
+                                id="error-text"></small>
+                            @error('dinas_yang_menerbitkan_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -101,7 +103,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mb-6">
+                    <div class="row mb-5">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">
                             <span class="required">Kewarganegaraan Ibu</span>
                         </label>
@@ -139,7 +141,7 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">NIk Ayah Kandung</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Ayah Kandung</label>
                         <div class="col-lg-8 fv-row">
                             <input id="nik_ayah_kandung" type="text" name="nik_ayah_kandung"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxxx"
@@ -152,7 +154,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="row mb-6">
+                    <div class="row mb-5">
                         <label class="col-lg-4 col-form-label fw-bold fs-6">
                             <span class="required">Kewarganegaraan Ayah</span>
                         </label>
@@ -206,11 +208,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Passport</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_passport" type="text" name="no_passport"
+                            <input id="nomor_passport_ibu" type="text" name="nomor_passport_ibu"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('no_passport') }}" />
-                            <small class="no_passport_error text-danger" id="error-text"></small>
-                            @error('no_passport')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nomor_passport_ibu') }}" />
+                            <small class="nomor_passport_ibu_error text-danger" id="error-text"></small>
+                            @error('nomor_passport_ibu')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -248,11 +250,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Passport</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_passport" type="text" name="no_passport"
+                            <input id="nomor_passport_ayah" type="text" name="nomor_passport_ayah"
                                 class="form-control form-control-lg form-control-solid"
-                                placeholder="Contoh: 360408121212****" value="{{ old('no_passport') }}" />
-                            <small class="no_passport_error text-danger" id="error-text"></small>
-                            @error('no_passport')
+                                placeholder="Contoh: 360408121212****" value="{{ old('nomor_passport_ayah') }}" />
+                            <small class="nomor_passport_ayah_error text-danger" id="error-text"></small>
+                            @error('nomor_passport_ayah')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -294,12 +296,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Penetapan Pengadilan
                         </label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_penetapan_pengadilan" type="text" name="no_penetapan_pengadilan"
+                            <input id="nomor_penetapan_pengadilan" type="text" name="nomor_penetapan_pengadilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_penetapan_pengadilan') }}" />
+                                value="{{ old('nomor_penetapan_pengadilan') }}" />
 
-                            <small class="no_penetapan_pengadilan_error text-danger" id="error-text"></small>
-                            @error('no_penetapan_pengadilan')
+                            <small class="nomor_penetapan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nomor_penetapan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -310,11 +312,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Lembaga Penetapan
                             Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_lembaga_penetapan" type="text" name="nama_lembaga_penetapan"
+                            <input id="nama_lembaga_penetapan_pengadilan" type="text"
+                                name="nama_lembaga_penetapan_pengadilan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('nama_lembaga_penetapan') }}" />
-                            <small class="nama_lembaga_penetapan_error text-danger" id="error-text"></small>
-                            @error('nama_lembaga_penetapan')
+                                value="{{ old('nama_lembaga_penetapan_pengadilan') }}" />
+                            <small class="nama_lembaga_penetapan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nama_lembaga_penetapan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -325,11 +328,13 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Tempat Lembaga Penetapan
                             Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tmpt_lembaga_penetapan" type="date" name="tmpt_lembaga_penetapan"
+                            <input id="tempat_lembaga_penetapan_pengadilan" type="text"
+                                name="tempat_lembaga_penetapan_pengadilan"
                                 class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder=""
-                                value="{{ old('tmpt_lembaga_penetapan') }}" />
-                            <small class="tmpt_lembaga_penetapan_error text-danger" id="error-text"></small>
-                            @error('tmpt_lembaga_penetapan')
+                                value="{{ old('tempat_lembaga_penetapan_pengadilan') }}" />
+                            <small class="tempat_lembaga_penetapan_pengadilan_error text-danger"
+                                id="error-text"></small>
+                            @error('tempat_lembaga_penetapan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

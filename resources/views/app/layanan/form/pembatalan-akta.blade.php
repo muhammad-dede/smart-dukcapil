@@ -16,11 +16,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Akta yang dibatalkan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="akta_batal" type="text" name="akta_batal"
+                            <input id="akta_yang_dibatalkan" type="text" name="akta_yang_dibatalkan"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('akta_batal') }}" />
-                            <small class="akta_batal_error text-danger" id="error-text"></small>
-                            @error('akta_batal')
+                                value="{{ old('akta_yang_dibatalkan') }}" />
+                            <small class="akta_yang_dibatalkan_error text-danger" id="error-text"></small>
+                            @error('akta_yang_dibatalkan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -30,11 +30,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">No Akta Yang dibatalkan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_yang_dbatalkan" type="text" name="no_akta_yang_dbatalkan"
+                            <input id="nomor_akta_yang_dibatalkan" type="text" name="nomor_akta_yang_dibatalkan"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('no_akta_yang_dbatalkan') }}" />
-                            <small class="no_akta_yang_dbatalkan_error text-danger" id="error-text"></small>
-                            @error('no_akta_yang_dbatalkan')
+                                value="{{ old('nomor_akta_yang_dibatalkan') }}" />
+                            <small class="nomor_akta_yang_dibatalkan_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_yang_dibatalkan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -59,11 +59,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Putusan Pengadilan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_putusan_pengadilan" type="text" name="no_putusan_pengadilan"
+                            <input id="nomor_putusan_pengadilan" type="text" name="nomor_putusan_pengadilan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxx"
-                                value="{{ old('no_putusan_pengadilan') }}" />
-                            <small class="no_putusan_pengadilan_error text-danger" id="error-text"></small>
-                            @error('no_putusan_pengadilan')
+                                value="{{ old('nomor_putusan_pengadilan') }}" />
+                            <small class="nomor_putusan_pengadilan_error text-danger" id="error-text"></small>
+                            @error('nomor_putusan_pengadilan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

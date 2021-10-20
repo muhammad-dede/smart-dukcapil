@@ -38,6 +38,18 @@ function get_agama()
     return $all_data;
 }
 
+function get_sebab_kematian()
+{
+    $all_data = \App\Models\_SebabKematian::all();
+    return $all_data;
+}
+
+function get_peristiwa_penting()
+{
+    $all_data = \App\Models\_PeristiwaPenting::all();
+    return $all_data;
+}
+
 function get_lamanya_dalam_kandungan()
 {
     $data = [];

@@ -4,12 +4,22 @@ namespace App\Http\Controllers\Application;
 
 use App\Http\Controllers\Controller;
 use App\Models\DataKelahiran;
+use App\Models\DataKematian;
 use App\Models\DataLahirMati;
 use App\Models\DataPembatalanPerceraian;
 use App\Models\DataPembatalanPerkawinan;
 use App\Models\DataPerceraian;
 use App\Models\DataPerkawinan;
+use App\Models\DataPengakuanAnak;
+use App\Models\DataPengesahanAnak;
+use App\Models\DataPerubahanNama;
+use App\Models\DataPerubahanStatusKewarganegaraan;
+use App\Models\DataPencatatanPeristiwaPentingLainnya;
+use App\Models\DataPembetulanAkta;
+use App\Models\DataPembatalanAkta;
+use App\Models\DataPelaporanPencatatanSipilDariLuarWilayahNkri;
 use App\Models\Layanan;
+use App\Models\DataPengangkatanAnak;
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
@@ -224,6 +234,204 @@ class LayananController extends Controller
                 'tgl_melapor' => $request->tgl_melapor,
             ]);
             $data_pembatalan_perceraian->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'kematian' && $layanan->id == 7) {
+            $data_kematian = DataKematian::create([
+                'id_pelapor' => auth()->id(),
+                'nik_kematian' => $request->nik_kematian,
+                'nama_kematian' => ucwords($request->nama_kematian),
+                'tgl_kematian' => $request->tgl_kematian,
+                'pukul_kematian' => $request->pukul_kematian,
+                'sebab_kematian' => $request->sebab_kematian,
+                'tempat_kematian' => ucwords($request->tempat_kematian),
+                'menerangkan_kematian' => $request->menerangkan_kematian,
+                'nama_ayah' => ucwords($request->nama_ayah),
+                'nik_ayah' => $request->nik_ayah,
+                'tempat_lahir_ayah' => ucwords($request->tempat_lahir_ayah),
+                'tgl_lahir_ayah' => $request->tgl_lahir_ayah,
+                'kewarganegaraan_ayah' => $request->kewarganegaraan_ayah,
+                'nama_ibu' => ucwords($request->nama_ibu),
+                'nik_ibu' => $request->nik_ibu,
+                'tempat_lahir_ibu' => ucwords($request->tempat_lahir_ibu),
+                'tgl_lahir_ibu' => $request->tgl_lahir_ibu,
+                'kewarganegaraan_ibu' => $request->kewarganegaraan_ibu,
+                'nama_saksi_1' => ucwords($request->nama_saksi_1),
+                'nik_saksi_1' => $request->nik_saksi_1,
+                'no_kk_saksi_1' => $request->no_kk_saksi_1,
+                'kewarganegaraan_saksi_1' => $request->kewarganegaraan_saksi_1,
+                'nama_saksi_2' => ucwords($request->nama_saksi_2),
+                'nik_saksi_2' => $request->nik_saksi_2,
+                'no_kk_saksi_2' => $request->no_kk_saksi_2,
+                'kewarganegaraan_saksi_2' => $request->kewarganegaraan_saksi_2,
+            ]);
+            $data_kematian->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pengangkatan-anak' && $layanan->id == 8) {
+            $data_pengangkatan_anak = DataPengangkatanAnak::create([
+                'id_pelapor' => auth()->id(),
+                'nama_anak_angkat' => ucwords($request->nama_anak_angkat),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'tgl_penerbitan_akta_kelahiran' => $request->tgl_penerbitan_akta_kelahiran,
+                'dinas_yang_menerbitkan_akta_kelahiran' => ucwords($request->dinas_yang_menerbitkan_akta_kelahiran),
+                'nama_ibu_kandung' =>  ucwords($request->nama_ibu_kandung),
+                'nik_ibu_kandung' => $request->nik_ibu_kandung,
+                'kewarganegaraan_ibu' => $request->kewarganegaraan_ibu,
+                'nama_ayah_kandung' => ucwords($request->nama_ayah_kandung),
+                'nik_ayah_kandung' => $request->nik_ayah_kandung,
+                'kewarganegaraan_ayah' => $request->kewarganegaraan_ayah,
+                'nama_ibu_angkat' => ucwords($request->nama_ibu_angkat),
+                'nik_ibu_angkat' => $request->nik_ibu_angkat,
+                'nomor_passport_ibu' => $request->nomor_passport_ibu,
+                'nama_ayah_angkat' => ucwords($request->nama_ayah_angkat),
+                'nik_ayah_angkat' => $request->nik_ayah_angkat,
+                'nomor_passport_ayah' => $request->nomor_passport_ayah,
+                'nama_pengadilan' => ucwords($request->nama_pengadilan),
+                'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
+                'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
+                'nama_lembaga_penetapan_pengadilan' => ucwords($request->nama_lembaga_penetapan_pengadilan),
+                'tempat_lembaga_penetapan_pengadilan' => ucwords($request->tempat_lembaga_penetapan_pengadilan),
+            ]);
+            $data_pengangkatan_anak->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pengakuan-anak' && $layanan->id == 9) {
+            $data_pengakuan_anak = DataPengakuanAnak::create([
+                'id_pelapor' => auth()->id(),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'tgl_penerbitan_akta_kelahiran' => $request->tgl_penerbitan_akta_kelahiran,
+                'dinas_yang_menerbitkan_akta_kelahiran' => ucwords($request->dinas_yang_menerbitkan_akta_kelahiran),
+                'tgl_kelahiran_anak' => $request->tgl_kelahiran_anak,
+                'tgl_perkawinan_agama' => $request->tgl_perkawinan_agama,
+                'nama_ibu_kandung' =>  ucwords($request->nama_ibu_kandung),
+                'nik_ibu_kandung' => $request->nik_ibu_kandung,
+                'kewarganegaraan_ibu' => $request->kewarganegaraan_ibu,
+                'nama_ayah_kandung' => ucwords($request->nama_ayah_kandung),
+                'nik_ayah_kandung' => $request->nik_ayah_kandung,
+                'kewarganegaraan_ayah' => $request->kewarganegaraan_ayah,
+                'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
+                'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
+                'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
+            ]);
+            $data_pengakuan_anak->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pengesahan-anak' && $layanan->id == 10) {
+            $data_pengesahan_anak = DataPengesahanAnak::create([
+                'id_pelapor' => auth()->id(),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'tgl_penerbitan_akta_kelahiran' => $request->tgl_penerbitan_akta_kelahiran,
+                'dinas_yang_menerbitkan_akta_kelahiran' => ucwords($request->dinas_yang_menerbitkan_akta_kelahiran),
+                'tgl_kelahiran_anak' => $request->tgl_kelahiran_anak,
+                'tgl_perkawinan_agama' => $request->tgl_perkawinan_agama,
+                'tgl_akta_perkawinan' => $request->tgl_akta_perkawinan,
+                'nama_ibu_kandung' =>  ucwords($request->nama_ibu_kandung),
+                'nik_ibu_kandung' => $request->nik_ibu_kandung,
+                'kewarganegaraan_ibu' => $request->kewarganegaraan_ibu,
+                'nama_ayah_kandung' => ucwords($request->nama_ayah_kandung),
+                'nik_ayah_kandung' => $request->nik_ayah_kandung,
+                'kewarganegaraan_ayah' => $request->kewarganegaraan_ayah,
+                'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
+                'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
+                'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
+            ]);
+            $data_pengesahan_anak->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'perubahan-nama' && $layanan->id == 11) {
+            $data_perubahan_nama = DataPerubahanNama::create([
+                'id_pelapor' => auth()->id(),
+                'nama_lama' => ucwords($request->nama_lama),
+                'nama_baru' => ucwords($request->nama_baru),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'nama_ibu' =>  ucwords($request->nama_ibu),
+                'nik_ibu' => $request->nik_ibu,
+                'kewarganegaraan' => $request->kewarganegaraan,
+                'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
+                'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
+                'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'perubahan-status-kewarganegaraan' && $layanan->id == 12) {
+            $data_perubahan_nama = DataPerubahanStatusKewarganegaraan::create([
+                'id_pelapor' => auth()->id(),
+                'kewarganegaraan_baru' => ucwords($request->kewarganegaraan_baru),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'nomor_akta_perkawinan' => $request->nomor_akta_perkawinan,
+                'nama_suami_istri' => ucwords($request->nama_suami_istri),
+                'nik_suami_istri' => $request->nik_suami_istri,
+                'nomor_passport' => $request->nomor_passport,
+                'nomor_afidavit' => $request->nomor_afidavit,
+                'nomor_keputusan_presiden' => $request->nomor_keputusan_presiden,
+                'tgl_keputusan_presiden' => $request->tgl_keputusan_presiden,
+                'nomor_berita_acara_sumpah' => $request->nomor_berita_acara_sumpah,
+                'nama_jabatan_yang_menerbitkan_bas' => ucwords($request->nama_jabatan_yang_menerbitkan_bas),
+                'tgl_penerbitan_sumpah_janji' => $request->tgl_penerbitan_sumpah_janji,
+                'nomor_keputusan_menteri' => $request->nomor_keputusan_menteri,
+                'tgl_keputusan_menteri' => $request->tgl_keputusan_menteri,
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pencatatan-peristiwa-penting-lainnya' && $layanan->id == 13) {
+            $data_perubahan_nama = DataPencatatanPeristiwaPentingLainnya::create([
+                'id_pelapor' => auth()->id(),
+                'nomor_akta_kelahiran' => $request->nomor_akta_kelahiran,
+                'jenis_kelamin_baru' => $request->jenis_kelamin_baru,
+                'jenis_kelamin_lama' => $request->jenis_kelamin_lama,
+                'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
+                'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
+                'nama_lembaga_pengadilan' => $request->nama_lembaga_pengadilan,
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pembetulan-akta' && $layanan->id == 14) {
+            $data_perubahan_nama = DataPembetulanAkta::create([
+                'id_pelapor' => auth()->id(),
+                'nomor_akta_yang_akan_dibetulkan' => $request->nomor_akta_yang_akan_dibetulkan,
+                'nama_ayah_ibu_wali' => ucwords($request->nama_ayah_ibu_wali),
+                'nik_ayah_ibu_wali' => $request->nik_ayah_ibu_wali,
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pembatalan-akta' && $layanan->id == 15) {
+            $data_perubahan_nama = DataPembatalanAkta::create([
+                'id_pelapor' => auth()->id(),
+                'akta_yang_dibatalkan' => ucwords($request->akta_yang_dibatalkan),
+                'nomor_akta_yang_dibatalkan' => $request->nomor_akta_yang_dibatalkan,
+                'nama_pengadilan' => ucwords($request->nama_pengadilan),
+                'nomor_putusan_pengadilan' => $request->nomor_putusan_pengadilan,
+                'tgl_putusan_pengadilan' => $request->tgl_putusan_pengadilan
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
+                'id_layanan' => $layanan->id,
+                'id_pelapor' => auth()->id(),
+            ]);
+        } elseif ($layanan->url == 'pelapor-pencatatan-sipil-dari-luar-wilayah-nkri' && $layanan->id == 16) {
+            $data_perubahan_nama = DataPelaporanPencatatanSipilDariLuarWilayahNkri::create([
+                'id_pelapor' => auth()->id(),
+                'jenis_peristiwa_penting' => $request->jenis_peristiwa_penting,
+                'nomor_surat_keterangan_pelaporan_perwakilan_ri' => $request->nomor_surat_keterangan_pelaporan_perwakilan_ri,
+                'tgl_surat_keterangan_pelaporan_perwakilan_ri' => $request->tgl_surat_keterangan_pelaporan_perwakilan_ri,
+                'kantor_perwakilan_yang_melakukan_pencatatan' => ucwords($request->kantor_perwakilan_yang_melakukan_pencatatan),
+                'nomor_bukti_pencatatan_sipil_dari_negara_setempat' => $request->nomor_bukti_pencatatan_sipil_dari_negara_setempat,
+                'tgl_penerbitan_dari_negara_setempat' => $request->tgl_penerbitan_dari_negara_setempat,
+            ]);
+            $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);

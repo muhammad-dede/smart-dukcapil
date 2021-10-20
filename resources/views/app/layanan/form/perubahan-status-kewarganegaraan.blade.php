@@ -31,11 +31,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">No Akta Kelahiran</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_kelahiran" type="text" name="no_akta_kelahiran"
+                            <input id="nomor_akta_kelahiran" type="text" name="nomor_akta_kelahiran"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxx"
-                                value="{{ old('no_akta_kelahiran') }}" />
-                            <small class="no_akta_kelahiran_error text-danger" id="error-text"></small>
-                            @error('no_akta_kelahiran')
+                                value="{{ old('nomor_akta_kelahiran') }}" />
+                            <small class="nomor_akta_kelahiran_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_kelahiran')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -45,11 +45,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">No Akta Perkawinan</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_akta_perkawinan" type="text" name="no_akta_perkawinan"
+                            <input id="nomor_akta_perkawinan" type="text" name="nomor_akta_perkawinan"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh : xxx"
-                                value="{{ old('no_akta_perkawinan') }}" />
-                            <small class="no_akta_perkawinan_error text-danger" id="error-text"></small>
-                            @error('no_akta_perkawinan')
+                                value="{{ old('nomor_akta_perkawinan') }}" />
+                            <small class="nomor_akta_perkawinan_error text-danger" id="error-text"></small>
+                            @error('nomor_akta_perkawinan')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -59,12 +59,27 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Suami / Istri</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_suami" type="text" name="nama_suami"
+                            <input id="nama_suami_istri" type="text" name="nama_suami_istri"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: Riwan"
-                                value="{{ old('nama_suami') }}" />
+                                value="{{ old('nama_suami_istri') }}" />
 
-                            <small class="nama_suami_error text-danger" id="error-text"></small>
-                            @error('nama_suami')
+                            <small class="nama_suami_istri_error text-danger" id="error-text"></small>
+                            @error('nama_suami_istri')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-5">
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">NIK Suami / Istri</label>
+                        <div class="col-lg-8 fv-row">
+                            <input id="nik_suami_istri" type="text" name="nik_suami_istri"
+                                class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxx"
+                                value="{{ old('nik_suami_istri') }}" />
+
+                            <small class="nik_suami_istri_error text-danger" id="error-text"></small>
+                            @error('nik_suami_istri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -74,11 +89,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Passport</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_passport" type="text" name="no_passport"
+                            <input id="nomor_passport" type="text" name="nomor_passport"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_passport') }}" />
-                            <small class="no_passport_error text-danger" id="error-text"></small>
-                            @error('no_passport')
+                                value="{{ old('nomor_passport') }}" />
+                            <small class="nomor_passport_error text-danger" id="error-text"></small>
+                            @error('nomor_passport')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -88,11 +103,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Afidavit</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_afidavit" type="text" name="no_afidavit"
+                            <input id="nomor_afidavit" type="text" name="nomor_afidavit"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_afidavit') }}" />
-                            <small class="no_afidavit_error text-danger" id="error-text"></small>
-                            @error('no_afidavit')
+                                value="{{ old('nomor_afidavit') }}" />
+                            <small class="nomor_afidavit_error text-danger" id="error-text"></small>
+                            @error('nomor_afidavit')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -102,11 +117,11 @@
                     <div class="row mb-5">
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Keputusan Presiden</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_keputusan_presiden" type="text" name="no_keputusan_presiden"
+                            <input id="nomor_keputusan_presiden" type="text" name="nomor_keputusan_presiden"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_keputusan_presiden') }}" />
-                            <small class="no_keputusan_presiden_error text-danger" id="error-text"></small>
-                            @error('no_keputusan_presiden')
+                                value="{{ old('nomor_keputusan_presiden') }}" />
+                            <small class="nomor_keputusan_presiden_error text-danger" id="error-text"></small>
+                            @error('nomor_keputusan_presiden')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -114,13 +129,13 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Keputusan</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Keputusan Presiden</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_keputusan" type="date" name="tgl_keputusan"
+                            <input id="tgl_keputusan_presiden" type="date" name="tgl_keputusan_presiden"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('tgl_keputusan') }}" />
-                            <small class="tgl_keputusan_error text-danger" id="error-text"></small>
-                            @error('tgl_keputusan')
+                                value="{{ old('tgl_keputusan_presiden') }}" />
+                            <small class="tgl_keputusan_presiden_error text-danger" id="error-text"></small>
+                            @error('tgl_keputusan_presiden')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -131,11 +146,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Berita Acara Sumpah / Janji
                             Setia</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_sumpah" type="text" name="no_sumpah"
+                            <input id="nomor_berita_acara_sumpah" type="text" name="nomor_berita_acara_sumpah"
                                 class="form-control form-control-lg form-control-solid" placeholder="Contoh: xxxx"
-                                value="{{ old('no_sumpah') }}" />
-                            <small class="no_sumpah_error text-danger" id="error-text"></small>
-                            @error('no_sumpah')
+                                value="{{ old('nomor_berita_acara_sumpah') }}" />
+                            <small class="nomor_berita_acara_sumpah_error text-danger" id="error-text"></small>
+                            @error('nomor_berita_acara_sumpah')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -146,11 +161,12 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nama Jabatan yang Menerbitkan
                             BAS</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="nama_jabatan" type="text" name="nama_jabatan"
+                            <input id="nama_jabatan_yang_menerbitkan_bas" type="text"
+                                name="nama_jabatan_yang_menerbitkan_bas"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('nama_jabatan') }}" />
-                            <small class="nama_jabatan_error text-danger" id="error-text"></small>
-                            @error('nama_jabatan')
+                                value="{{ old('nama_jabatan_yang_menerbitkan_bas') }}" />
+                            <small class="nama_jabatan_yang_menerbitkan_bas_error text-danger" id="error-text"></small>
+                            @error('nama_jabatan_yang_menerbitkan_bas')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -158,13 +174,14 @@
                         </div>
                     </div>
                     <div class="row mb-5">
-                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Terbit</label>
+                        <label class="col-lg-4 col-form-label required fw-bold fs-6">Tanggal Terbit Sumpah Janji
+                            Setia</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="tgl_terbit" type="date" name="tgl_terbit"
+                            <input id="tgl_penerbitan_sumpah_janji" type="date" name="tgl_penerbitan_sumpah_janji"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('tgl_terbit') }}" />
-                            <small class="tgl_terbit_error text-danger" id="error-text"></small>
-                            @error('tgl_terbit')
+                                value="{{ old('tgl_penerbitan_sumpah_janji') }}" />
+                            <small class="tgl_penerbitan_sumpah_janji_error text-danger" id="error-text"></small>
+                            @error('tgl_penerbitan_sumpah_janji')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -175,11 +192,11 @@
                         <label class="col-lg-4 col-form-label required fw-bold fs-6">Nomor Keputusan Menteri (Bidang
                             Kewarganegaraan)</label>
                         <div class="col-lg-8 fv-row">
-                            <input id="no_keputusan_menteri" type="text" name="no_keputusan_menteri"
+                            <input id="nomor_keputusan_menteri" type="text" name="nomor_keputusan_menteri"
                                 class="form-control form-control-lg form-control-solid" placeholder=""
-                                value="{{ old('no_keputusan_menteri') }}" />
-                            <small class="no_keputusan_menteri_error text-danger" id="error-text"></small>
-                            @error('no_keputusan_menteri')
+                                value="{{ old('nomor_keputusan_menteri') }}" />
+                            <small class="nomor_keputusan_menteri_error text-danger" id="error-text"></small>
+                            @error('nomor_keputusan_menteri')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -201,6 +218,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="py-4 text-muted">
                     <hr>
                 </div>
