@@ -179,9 +179,9 @@
                                     </div>
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">
-                                            {{ auth()->user()->nama_lengkap }} </div>
+                                            {{ Str::words(auth()->user()->nama_lengkap, 1, '') }} </div>
                                         <a href="{{ url('app/profil') }}"
-                                            class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
+                                            class="fw-bold text-muted text-hover-primary fs-7">{{ Str::limit(auth()->user()->email, 20, '...') }}</a>
                                     </div>
                                 </div>
                             </div>

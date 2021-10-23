@@ -115,7 +115,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{ asset('') }}assets/media/websites/details-3.png"
+                        <img class="img-fluid" src="{{ asset('') }}images/petunjuk/3.png"
                             alt="alternative">
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                     <div class="text-container">
                         <div class="section-title">Langkah 3</div>
                         <h1>Isi Form Pengajuan</h1>
-                        <p>Pemohon untuk mengisi form pengajuan dengan benar dan dilengkapi dengan dokumen pendukung
+                        <p>Setelah memilih layanan pemohon mengisi form pengajuan dengan benar dan dilengkapi dengan dokumen pendukung
                         </p>
                     </div>
                 </div>
@@ -137,16 +137,36 @@
                 <div class="col-lg-5">
                     <div class="text-container">
                         <div class="section-title">Langkah 4</div>
-                        <h1>Pemberitahuan Hasil Pengajuan</h1>
-                        <p>Setelah melakukan pengajuan pada layanan smartdukcapil, form yang diajukan akan
-                            diverifikasi oleh admin dan memproses permohonan. <br /> pemohon akan diberitahukan
+                        <h1>Verifikasi Admin Dukcapil</h1>
+                        <p>Layanan atau form yang diajukan akan dilakukan verifikasi terlebih dahulu oleh admin dukcapil. <br /> dan selanjutnya pemohon akan diberitahukan
                             melalui email atau pesan yang terdapat pada akun smartdukcapil.</p>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="image-container">
-                        <img class="img-fluid" src="{{ asset('') }}assets/media/websites/details-1.png"
+                        <img class="img-fluid" src="{{ asset('') }}images/petunjuk/4.png"
                             alt="alternative">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="basic-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="{{ asset('') }}images/petunjuk/5.png"
+                            alt="alternative">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="text-container">
+                        <div class="section-title">Langkah 5</div>
+                        <h1>Pemberitahuan Hasil Pengajuan Layanan</h1>
+                        <p>Setelah Form pengajuan diverifikasi oleh admin dukcapil, pemohon akan mendapatkan notifikasi melalui aplikasi smartdukcapil atau email pemohon mengenai hasil layanan yang diajukan
+                        </p>
                     </div>
                 </div>
             </div>
