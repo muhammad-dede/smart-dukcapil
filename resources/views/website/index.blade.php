@@ -10,10 +10,10 @@
             <div class="row justify-content-center">
                 @foreach ($data_layanan as $layanan)
                     <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="box">
+                        <div class="box h-75">
                             <div class="icon" style="background: #fceef3;"><i class="{{ $layanan->icon }}"
                                     style="color: {{ $layanan->color }};"></i></div>
-                            <h4 class="title"><a href="{{ url('login') }}">{{ $layanan->layanan }}</a></h4>
+                            <h4 class="title text-muted"><a href="{{ url('login') }}">{{ $layanan->layanan }}</a></h4>
                         </div>
                     </div>
                 @endforeach
@@ -27,7 +27,7 @@
                 <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up">
                     <div class="count-box">
                         <i class="fa fa-people-arrows" style="color: #20b38e;"></i>
-                        <span data-toggle="counter-up">232</span>
+                        <span data-toggle="counter-up">{{ $total }}</span>
                         <p>Total Pelaporan</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                 <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="count-box">
                         <i class="fa fa-file-download" style="color: #c042ff;"></i>
-                        <span data-toggle="counter-up">521</span>
+                        <span data-toggle="counter-up">{{ $diproses }}</span>
                         <p>Dalam Proses</p>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="400">
                     <div class="count-box">
                         <i class="fa bi-file-earmark-x" style="color: #46d1ff;"></i>
-                        <span data-toggle="counter-up">1,463</span>
+                        <span data-toggle="counter-up">{{ $ditolak }}</span>
                         <p>Ditolak</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="col-lg-3 col-md-6 text-center" data-aos="fade-up" data-aos-delay="600">
                     <div class="count-box">
                         <i class="fa fa-file-archive" style="color: #ffb459;"></i>
-                        <span data-toggle="counter-up">15</span>
+                        <span data-toggle="counter-up">{{ $diterima }}</span>
                         <p>Selesai</p>
                     </div>
                 </div>

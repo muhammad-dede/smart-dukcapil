@@ -32,7 +32,10 @@
                 @enderror
             </div>
             <div class="mb-10 fv-row" data-kt-password-meter="true">
-                <label class="form-label fw-bolder text-dark fs-6">Password</label>
+                <div class="d-flex flex-stack mb-2">
+                    <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
+                    <a href="{{ url('password/reset') }}" class="link-primary fs-6 fw-bolder">Lupa Password ?</a>
+                </div>
                 <div class="position-relative">
                     <input id="password" class="form-control form-control-lg form-control-solid" type="password"
                         placeholder="" name="password" autocomplete="off" />
