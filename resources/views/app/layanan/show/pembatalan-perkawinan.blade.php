@@ -3,8 +3,8 @@
             <div class="card-title m-0">
                 <h3 class="fw-bolder m-0">Pengajuan {{ $pengajuan->layanan->layanan }}</h3>
             </div>
-            <a href="javascript:void(0)" class="btn btn-primary align-self-center">Edit
-                Pengajuan</a>
+            {{-- <a href="javascript:void(0)" class="btn btn-primary align-self-center">Edit
+                Pengajuan</a> --}}
         </div>
         <div class="card-body p-9">
             <div
