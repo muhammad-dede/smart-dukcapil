@@ -52,7 +52,7 @@ class LoginController extends Controller
         } else {
             if (Hash::check($request->password, $user->password)) {
                 Auth::login($user, true);
-                return response()->json(['status' => 200, 'message' => 'Berhasil Login', 'url' => url('/app/beranda')]);
+                return response()->json(['status' => 200, 'message' => 'Berhasil Login']);
             } else {
                 return response()->json(['status' => 401, 'message' => 'Password Salah']);
             }
