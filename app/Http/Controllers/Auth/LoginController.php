@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
-
-
     /**
      * Where to redirect users after login.
      *
@@ -54,7 +52,7 @@ class LoginController extends Controller
         } else {
             if (Hash::check($request->password, $user->password)) {
                 Auth::login($user, true);
-                return response()->json(['status' => 200, 'message' => 'Berhasil Login']);
+                return response()->json(['status' => 200, 'message' => 'Berhasil Login', 'url' => url('/app/beranda')]);
             } else {
                 return response()->json(['status' => 401, 'message' => 'Password Salah']);
             }
