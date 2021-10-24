@@ -15,10 +15,8 @@ Auth::routes(['login' => false, 'register' => false]);
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [PagesController::class, 'index'])->name('home');
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/login/validation', [LoginController::class, 'validation'])->name('login.validation');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/register/validation', [RegisterController::class, 'validation'])->name('register.validation');
     Route::post('/register', [RegisterController::class, 'register'])->name('register');
 });
 

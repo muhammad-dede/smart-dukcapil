@@ -191,8 +191,5 @@
 @endsection
 
 @push('scripts')
-    <script>
-        var base_url = {!! json_encode(url('/')) !!};
-    </script>
     <script src="{{ asset('') }}js/auth/register.js"></script>
 @endpush

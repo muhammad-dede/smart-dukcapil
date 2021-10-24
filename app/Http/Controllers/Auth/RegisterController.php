@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -15,7 +16,7 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function validation(Request $request)
+    public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'nik' => 'required|unique:pelapor,nik|numeric',
@@ -53,30 +54,11 @@ class RegisterController extends Controller
             'password.confirmed' => 'Password konfirmasi tidak sama',
         ]);
 
-        if (!$validator->passes()) {
-            return response()->json(['status' => 400, 'error' => $validator->errors()->toArray()]);
+        if ($validator->fails()) {
+            return response()->json(['status' => 400, 'message' => $validator->errors()->toArray()]);
         }
 
-        return response()->json(['status' => 200, 'message' => 'Berhasil Mendaftar']);
-    }
-
-    public function register(Request $request)
-    {
-        $request->validate([
-            'nik' => 'required|unique:pelapor,nik|numeric',
-            'no_kk' => 'required|numeric',
-            'nama_lengkap' => 'required|string',
-            'tempat_lahir' => 'required|string',
-            'tgl_lahir' => 'required|date_format:Y-m-d',
-            'nama_ibu' => 'required|string',
-            'telp' => 'required|string',
-            'kewarganegaraan' => 'required|string',
-            'username' => 'required|string|unique:pelapor,username|regex:/^\S*$/u',
-            'email' => 'required|email|unique:pelapor,email',
-            'password' => 'required|min:8|string|confirmed',
-        ]);
-
-        User::create([
+        $user = User::create([
             'nik' => $request->nik,
             'no_kk' => $request->no_kk,
             'nama_lengkap' => ucwords($request->nama_lengkap),
@@ -91,6 +73,8 @@ class RegisterController extends Controller
             'profil' => 'default.svg',
         ]);
 
-        return redirect(url('login'))->with('success', 'Berhasil mendaftar, silahkan login untuk mengakses Aplikasi Smart Dukcapil');
+        Auth::login($user, true);
+
+        return response()->json(['status' => 200, 'message' => 'Berhasil Mendaftar']);
     }
 }

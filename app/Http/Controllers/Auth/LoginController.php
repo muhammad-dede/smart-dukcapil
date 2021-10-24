@@ -16,29 +16,6 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function validation(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'username' => 'required',
-            'password' => 'required|min:8|string',
-        ]);
-
-        if (!$validator->passes()) {
-            return response()->json(['status' => 400, 'message' => $validator->errors()->toArray()]);
-        }
-
-        $user = User::where('username', $request->username)->orWhere('email', $request->username)->first();
-        if (!$user) {
-            return response()->json(['status' => 404, 'message' => 'Email atau Username tidak terdaftar.']);
-        } else {
-            if (Hash::check($request->password, $user->password)) {
-                return response()->json(['status' => 200, 'message' => 'Berhasil Login']);
-            } else {
-                return response()->json(['status' => 401, 'message' => 'Password Salah']);
-            }
-        }
-    }
-
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [

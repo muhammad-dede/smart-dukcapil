@@ -1,43 +1,40 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 $(document).ready(function () {
     $('#btn-daftar').click(function (e) {
         e.preventDefault();
+        var form = $('#form-daftar'),
+            url = form.attr('action'),
+            method = $('input[name=_method]').val() == undefined ? 'POST' : 'POST';
         $.ajax({
-            url: base_url + '/register/validation',
-            type: "POST",
-            data: {
-                nik: $('#nik').val(),
-                no_kk: $('#no_kk').val(),
-                nama_lengkap: $('#nama_lengkap').val(),
-                tempat_lahir: $('#tempat_lahir').val(),
-                tgl_lahir: $('#tgl_lahir').val(),
-                nama_ibu: $('#nama_ibu').val(),
-                telp: $('#telp').val(),
-                kewarganegaraan: $('#kewarganegaraan').val(),
-                username: $('#username').val(),
-                email: $('#email').val(),
-                password: $('#password').val(),
-                password_confirmation: $('#password_confirmation').val(),
-            },
+            url: url,
+            method: method,
+            data: form.serialize(),
             beforeSend: function () {
                 $(document).find('#error-text').text('');
             },
-            success: function (data) {
-                if (data.status == 400) {
-                    $.each(data.error, function (prefix, val) {
-                        $('.' + prefix + '_error').text(val[0]);
+            success: function (response) {
+                if (response.status == 400) {
+                    $.each(response.message, function (key, value) {
+                        $('.' + key + '_error').text(value[0]);
                         $('html, body').animate({
-                            scrollTop: $('#' + prefix)
+                            scrollTop: $('#' + key)
                                 .offset().top - 200
                         }, 500);
                         return false;
                     });
-                } else {
-                    $("#form-daftar").submit();
+                } else if (response.status == 200) {
+                    form.trigger('reset');
+                    Swal.fire({
+                        toast: true,
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        position: 'top-end',
+                        timer: 1000,
+                        timerProgressBar: true,
+                    }).then(() => {
+                        history.go(0);
+                    });
                 }
             }
         })
