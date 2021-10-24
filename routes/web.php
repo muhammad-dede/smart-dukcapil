@@ -5,20 +5,20 @@ use App\Http\Controllers\Application\Ajax\ProfilController as AjaxProfilControll
 use App\Http\Controllers\Application\BerandaController;
 use App\Http\Controllers\Application\LayananController;
 use App\Http\Controllers\Application\ProfilController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Website\PagesController;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes(['login' => false, 'register' => false]);
+// Auth::routes(['login' => false, 'register' => false]);
 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [PagesController::class, 'index'])->name('home');
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [LoginController::class, 'login'])->name('login');
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/register', [RegisterController::class, 'register'])->name('register');
-});
+// Route::group(['middleware' => 'guest'], function () {
+//     Route::get('/', [PagesController::class, 'index'])->name('home');
+//     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+//     Route::post('/login', [LoginController::class, 'login'])->name('login');
+//     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+//     Route::post('/register', [RegisterController::class, 'register'])->name('register');
+// });
+Auth::routes();
+Route::get('/', [PagesController::class, 'index'])->name('home')->middleware('guest');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
