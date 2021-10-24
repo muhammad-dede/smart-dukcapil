@@ -93,6 +93,6 @@ class RegisterController extends Controller
 
         Auth::login($user, true);
 
-        return response()->json(['status' => 200, 'message' => 'Berhasil Mendaftar']);
+        return response()->json(['status' => 200, 'message' => 'Berhasil Mendaftar', 'url' => url('/app/beranda')]);
     }
 }

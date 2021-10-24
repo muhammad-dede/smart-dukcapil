@@ -33,7 +33,7 @@ $(document).ready(function () {
                         timer: 1000,
                         timerProgressBar: true,
                     }).then(() => {
-                        history.go(0);
+                        window.location.href = response.url;
                     });
                 }
             }
