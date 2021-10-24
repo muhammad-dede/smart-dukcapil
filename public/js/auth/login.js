@@ -1,32 +1,35 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 $(document).ready(function () {
     $('#btn-login').click(function (e) {
         e.preventDefault();
+        var form = $('#form-login'),
+            url = form.attr('action'),
+            method = $('input[name=_method]').val() == undefined ? 'POST' : 'POST';
         $.ajax({
-            url: base_url + '/login/validation',
-            type: "POST",
-            data: {
-                username: $('#username').val(),
-                password: $('#password').val(),
-            },
+            url: url,
+            method: method,
+            data: form.serialize(),
             beforeSend: function () {
                 $(document).find('#error-text').text('');
             },
-            success: function (data) {
-                if (data.status == 400) {
-                    $.each(data.message, function (prefix, val) {
-                        $('.' + prefix + '_error').text(val[0]);
+            success: function (response) {
+                if (response.status == 400) {
+                    $.each(response.message, function (key, value) {
+                        $('.' + key + '_error').text(value[0]);
                     });
-                } else if (data.status == 404) {
-                    $('.username_error').text(data.message);
-                } else if (data.status == 401) {
-                    $('.password_error').text(data.message);
-                } else if (data.status == 200) {
-                    $("#form-login").submit();
+                } else if (response.status == 200) {
+                    form.trigger('reset');
+                    Swal.fire({
+                        toast: true,
+                        icon: 'success',
+                        title: response.message,
+                        showConfirmButton: false,
+                        showCloseButton: true,
+                        position: 'top-end',
+                        timer: 1000,
+                        timerProgressBar: true,
+                    }).then(() => {
+                        history.go(0);
+                    });
                 }
             }
         })

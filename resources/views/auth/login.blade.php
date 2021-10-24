@@ -31,23 +31,17 @@
                     </span>
                 @enderror
             </div>
-            <div class="mb-10 fv-row" data-kt-password-meter="true">
+            <div class="fv-row mb-10">
                 <div class="d-flex flex-stack mb-2">
                     <label class="form-label fw-bolder text-dark fs-6 mb-0">Password</label>
                     <a href="{{ url('password/reset') }}" class="link-primary fs-6 fw-bolder">Lupa Password ?</a>
                 </div>
-                <div class="position-relative">
-                    <input id="password" class="form-control form-control-lg form-control-solid" type="password"
-                        placeholder="" name="password" autocomplete="off" />
-                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
-                        data-kt-password-meter-control="visibility">
-                        <i class="bi bi-eye-slash fs-2"></i>
-                        <i class="bi bi-eye fs-2 d-none"></i>
-                    </span>
-                </div>
+                <input id="password"
+                    class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
+                    type="password" name="password" autocomplete="off" />
                 <small class="password_error text-danger" id="error-text"></small>
                 @error('password')
-                    <span class="text-danger" role="alert">
+                    <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
@@ -65,8 +59,5 @@
 @endsection
 
 @push('scripts')
-    <script>
-        var base_url = {!! json_encode(url('/')) !!};
-    </script>
     <script src="{{ asset('') }}js/auth/login.js"></script>
 @endpush
