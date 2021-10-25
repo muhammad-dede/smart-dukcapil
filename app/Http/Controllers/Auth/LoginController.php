@@ -3,16 +3,26 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use App\Rules\CheckAccountExist;
+use App\Rules\CheckPasswordValid;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+    use AuthenticatesUsers;
+
     /**
      * Where to redirect users after login.
      *
@@ -30,38 +40,19 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginForm()
+    public function username()
     {
-        return view('auth.login');
+        return 'username';
     }
 
-    public function login(Request $request)
+    protected function validateLogin(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'username' => 'required',
-            'password' => 'required|min:8|string',
+        $request->validate([
+            'username' => ['required', 'string', new CheckAccountExist],
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 400, 'message' => $validator->errors()->toArray()]);
-        }
-
-        $user = User::where('username', $request->username)->orWhere('email', $request->username)->first();
-        if (!$user) {
-            return response()->json(['status' => 404, 'message' => 'Email atau Username tidak terdaftar.']);
-        } else {
-            if (Hash::check($request->password, $user->password)) {
-                Auth::login($user, true);
-                return response()->json(['status' => 200, 'message' => 'Berhasil Login']);
-            } else {
-                return response()->json(['status' => 401, 'message' => 'Password Salah']);
-            }
-        }
-    }
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        return redirect(url('/'));
+        $request->validate([
+            'password' => ['required', 'string', new CheckPasswordValid($request->username)],
+        ]);
     }
 }

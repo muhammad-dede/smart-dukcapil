@@ -5,13 +5,25 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Register Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles the registration of new users as well as their
+    | validation and creation. By default this controller uses a trait to
+    | provide this functionality without requiring any additional code.
+    |
+    */
+
+    use RegistersUsers;
+
     /**
      * Where to redirect users after registration.
      *
@@ -29,14 +41,9 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function showRegistrationForm()
+    protected function validator(array $data)
     {
-        return view('auth.register');
-    }
-
-    public function register(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
+        return Validator::make($data, [
             'nik' => 'required|unique:pelapor,nik|numeric',
             'no_kk' => 'required|numeric',
             'nama_lengkap' => 'required|string',
@@ -48,6 +55,7 @@ class RegisterController extends Controller
             'username' => 'required|string|unique:pelapor,username|regex:/^\S*$/u',
             'email' => 'required|email|unique:pelapor,email',
             'password' => 'required|min:8|string|confirmed',
+            'sk' => 'required',
         ], [
             'nik.required' => 'Wajib diisi',
             'nik.unique' => 'Sudah terdaftar',
@@ -70,29 +78,25 @@ class RegisterController extends Controller
             'password.required' => 'Password wajib diisi',
             'password.min' => 'Password minimal 8 karakter',
             'password.confirmed' => 'Password konfirmasi tidak sama',
+            'sk.required' => 'Harap menyetujui Syarat dan Ketentuan kami',
         ]);
+    }
 
-        if ($validator->fails()) {
-            return response()->json(['status' => 400, 'message' => $validator->errors()->toArray()]);
-        }
-
-        $user = User::create([
-            'nik' => $request->nik,
-            'no_kk' => $request->no_kk,
-            'nama_lengkap' => ucwords($request->nama_lengkap),
-            'tempat_lahir' => ucwords($request->tempat_lahir),
-            'tgl_lahir' => $request->tgl_lahir,
-            'nama_ibu' => ucwords($request->nama_ibu),
-            'telp' => $request->telp,
-            'kewarganegaraan' => $request->kewarganegaraan,
-            'username' => strtolower($request->username),
-            'email' => strtolower($request->email),
-            'password' => Hash::make($request->password),
+    protected function create(array $data)
+    {
+        return User::create([
+            'nik' => $data['nik'],
+            'no_kk' => $data['no_kk'],
+            'nama_lengkap' => ucwords($data['nama_lengkap']),
+            'tempat_lahir' => ucwords($data['tempat_lahir']),
+            'tgl_lahir' => $data['tgl_lahir'],
+            'nama_ibu' => ucwords($data['nama_ibu']),
+            'telp' => $data['telp'],
+            'kewarganegaraan' => $data['kewarganegaraan'],
+            'username' => strtolower($data['username']),
+            'email' => strtolower($data['email']),
+            'password' => Hash::make($data['password']),
             'profil' => 'default.svg',
         ]);
-
-        Auth::login($user, true);
-
-        return response()->json(['status' => 200, 'message' => 'Berhasil Mendaftar']);
     }
 }

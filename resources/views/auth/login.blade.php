@@ -24,12 +24,9 @@
                 <input id="username"
                     class="form-control form-control-lg form-control-solid @error('username') is-invalid @enderror"
                     type="text" name="username" autocomplete="off" value="{{ old('username') }}" />
-                <small class="username_error text-danger" id="error-text"></small>
-                @error('username')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                @if ($errors->has('username'))
+                    <div class="invalid-feedback">{{ $errors->first('username') }}</div>
+                @endif
             </div>
             <div class="fv-row mb-10">
                 <div class="d-flex flex-stack mb-2">
@@ -39,15 +36,12 @@
                 <input id="password"
                     class="form-control form-control-lg form-control-solid @error('password') is-invalid @enderror"
                     type="password" name="password" autocomplete="off" />
-                <small class="password_error text-danger" id="error-text"></small>
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                @if ($errors->has('password'))
+                    <div class="invalid-feedback">{{ $errors->first('password') }}</div>
+                @endif
             </div>
             <div class="text-center">
-                <button type="button" id="btn-login" class="btn btn-lg btn-primary w-100 mb-5">
+                <button type="submit" id="btn-login" class="btn btn-lg btn-primary w-100 mb-5">
                     <span class="indicator-label">Login</span>
                     <span class="indicator-progress">Please wait...
                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
@@ -57,7 +51,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('') }}js/auth/login.js"></script>
-@endpush

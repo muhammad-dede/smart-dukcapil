@@ -23,24 +23,6 @@ class UpdateProfilValidation extends FormRequest
      */
     public function rules()
     {
-        // $rules = [];
-
-        // if (!empty($this->attributes->has('profil'))) {
-        //     $rules['profil'] = 'required|max:1024|mimes:png,jpg';
-        // }
-
-        // $rules['nik'] = 'required|numeric|unique:pelapor,nik,' . auth()->id() . ',id|digits:16,16';
-        // $rules['no_kk'] = 'required|numeric';
-        // $rules['nama_lengkap'] = 'numeric|string';
-        // $rules['tempat_lahir'] = 'numeric|string';
-        // $rules['tgl_lahir'] = 'required|date_format:Y-m-d';
-        // $rules['nama_ibu'] = 'required|string';
-        // $rules['telp'] = 'required|string';
-        // $rules['username'] = 'required|string|unique:pelapor,' . auth()->id() . ',id|username|regex:/^\S*$/u';
-        // $rules['email'] = 'required|email|unique:pelapor,email,' . auth()->id() . ',id';
-
-        // return $rules;
-
         return [
             'nik' => 'required|numeric|unique:pelapor,nik,' . auth()->id() . ',id|digits:16,16',
             'no_kk' => 'required|numeric',
