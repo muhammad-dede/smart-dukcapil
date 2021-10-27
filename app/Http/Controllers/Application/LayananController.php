@@ -23,6 +23,7 @@ use App\Models\DataPengangkatanAnak;
 use App\Models\Pengajuan;
 use App\Models\PengajuanBerkas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 
 class LayananController extends Controller
@@ -44,12 +45,21 @@ class LayananController extends Controller
 
     public function create($url)
     {
+        // Cek jika url tidak ada
         $layanan = Layanan::with('persyaratan')->where('url', $url)->first();
-        $berkas_persyaratan = $layanan->persyaratan;
         if (!$layanan) {
             return abort('404');
         }
 
+        // Cek duplicate pengajuan
+        $pengajuan = Pengajuan::where('id_layanan', $layanan->id)->where('id_pelapor', auth()->id())->first();
+        if (Carbon::parse($pengajuan->tgl)->toDateString() == date('Y-m-d')) {
+            return redirect()->back()->with('unique', 'Anda sudah melakukan pengajuan pada hari ini, lakukan pengajuan pada hari berikutnya!');
+        } elseif ($pengajuan->status == 'V') {
+            return redirect()->back()->with('unique', 'Anda memiliki pengajuan yang belum terselesaikan!');
+        }
+
+        $berkas_persyaratan = $layanan->persyaratan;
         return view('app.layanan.create', compact('layanan', 'berkas_persyaratan'));
     }
 

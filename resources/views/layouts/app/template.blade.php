@@ -56,7 +56,7 @@
                 Swal.fire({
                 toast: true,
                 icon: 'success',
-                title: '{{ Session::get('success') }}',
+                title: "{{ Session::get('success') }}",
                 showConfirmButton: false,
                 showCloseButton: true,
                 position: 'top-end',
@@ -66,11 +66,19 @@
                 Swal.fire({
                 toast: true,
                 icon: 'error',
-                title: '{{ Session::get('success') }}',
+                title: "{{ Session::get('warning') }}",
                 position: 'top-end',
                 showConfirmButton: false,
                 showCloseButton: true,
                 });
+            @endif
+            @if (Session::has('unique'))
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ Session::get('unique') }}",
+                footer: "<a href='{{ url('app/beranda') }}'>Pergi ke Pengajuan Saya</a>"
+                })
             @endif
         });
     </script>

@@ -110,9 +110,9 @@
                         @include('app.layanan.show.pembetulan-akta')
                     @elseif ($pengajuan->layanan->url == 'pembatalan-akta' && $pengajuan->id_layanan == 15)
                         @include('app.layanan.show.pembatalan-akta')
-                    @elseif ($pengajuan->layanan->url == 'pelapor-pencatatan-sipil-dari-luar-wilayah-nkri' &&
+                    @elseif ($pengajuan->layanan->url == 'pelaporan-pencatatan-sipil-dari-luar-wilayah-nkri' &&
                         $pengajuan->id_layanan == 16)
-                        @include('app.layanan.show.pelapor-pencatatan-sipil-dari-luar-wilayah-nkri')
+                        @include('app.layanan.show.pelaporan-pencatatan-sipil-dari-luar-wilayah-nkri')
                     @else
                         @include('app.layanan.show.404')
                     @endif

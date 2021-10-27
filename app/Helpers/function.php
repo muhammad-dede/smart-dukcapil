@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\PengajuanBerkas;
-
 function get_tempat_dilahirkan()
 {
     $all_data = \App\Models\_TempatDilahirkan::all();
@@ -68,14 +66,14 @@ function get_status_pengajuan($id)
     $pengajuan = \App\Models\Pengajuan::where('id', $id)->where('id_pelapor', auth()->id())->first();
     $persyaratan = \App\Models\Persyaratan::where('id_layanan', $pengajuan->id_layanan)->count();
     if ($persyaratan > 0) {
-        $upload_pengajuan_berkas = PengajuanBerkas::where('id_pengajuan', $pengajuan->id)->where('upload', false);
+        $upload_pengajuan_berkas = \App\Models\PengajuanBerkas::where('id_pengajuan', $pengajuan->id)->where('upload', false);
         if ($upload_pengajuan_berkas->count() > 0) {
             $kode = 'Incompleted';
             $color = 'warning';
             $status = 'Berkas Persyaratan Tidak Lengkap';
             $text = $upload_pengajuan_berkas->count() . ' berkas belum diupload, mohon untuk melengkapi data persyaratan untuk proses verifikasi.';
         } else {
-            // $invalid_pengajuan_berkas = PengajuanBerkas::where('id_pengajuan', $pengajuan->id)->where('valid', false)->get();
+            // $invalid_pengajuan_berkas = \App\Models\PengajuanBerkas::where('id_pengajuan', $pengajuan->id)->where('valid', false)->get();
             // if ($invalid_pengajuan_berkas->count() > 0) {
             //     $kode = 'Invalid';
             //     $color = 'danger';
@@ -106,4 +104,15 @@ function get_status_pengajuan($id)
         'text' => $text,
     ];
     return $status_pengajuan;
+}
+
+function get_notifikasi()
+{
+    $pengajuan = \App\Models\Pengajuan::where('id_pelapor', auth()->id())->where('status', 'V')->get();
+
+    $get_notifikasi = (object) [
+        'count_notifikasi' => $pengajuan->count(),
+        'data_notifikasi' => $pengajuan,
+    ];
+    return $get_notifikasi;
 }
