@@ -21,7 +21,9 @@ use App\Models\DataPelaporanPencatatanSipilDariLuarWilayahNkri;
 use App\Models\Layanan;
 use App\Models\DataPengangkatanAnak;
 use App\Models\Pengajuan;
+use App\Models\PengajuanBerkas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class LayananController extends Controller
 {
@@ -42,15 +44,20 @@ class LayananController extends Controller
 
     public function create($url)
     {
-        return view('app.layanan.create', [
-            'layanan' => Layanan::where('url', $url)->first(),
-        ]);
+        $layanan = Layanan::with('persyaratan')->where('url', $url)->first();
+        $berkas_persyaratan = $layanan->persyaratan;
+        if (!$layanan) {
+            return abort('404');
+        }
+
+        return view('app.layanan.create', compact('layanan', 'berkas_persyaratan'));
     }
 
     public function store(Request $request, $url)
     {
         $layanan = Layanan::where('url', $url)->first();
 
+        // insert data pengajuan
         if ($layanan->url == 'kelahiran' && $layanan->id == 1) {
             $data_kelahiran = DataKelahiran::create([
                 'id_pelapor' => auth()->id(),
@@ -85,7 +92,7 @@ class LayananController extends Controller
                 'no_kk_saksi_2' => $request->no_kk_saksi_2,
                 'kewarganegaraan_saksi_2' => $request->kewarganegaraan_saksi_2,
             ]);
-            $data_kelahiran->pengajuan()->create([
+            $pengajuan = $data_kelahiran->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -121,7 +128,7 @@ class LayananController extends Controller
                 'no_kk_saksi_2' => $request->no_kk_saksi_2,
                 'kewarganegaraan_saksi_2' => $request->kewarganegaraan_saksi_2,
             ]);
-            $data_lahir_mati->pengajuan()->create([
+            $pengajuan =  $data_lahir_mati->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -155,7 +162,7 @@ class LayananController extends Controller
                 'tgl_akta_notaris' => $request->tgl_akta_notaris,
                 'jumlah_anak' => $request->jumlah_anak,
             ]);
-            $data_perkawinan->pengajuan()->create([
+            $pengajuan = $data_perkawinan->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -196,7 +203,7 @@ class LayananController extends Controller
                 'tgl_akta_notaris' => $request->tgl_akta_notaris,
                 'jumlah_anak' => $request->jumlah_anak,
             ]);
-            $data_pembatalan_perkawinan->pengajuan()->create([
+            $pengajuan = $data_pembatalan_perkawinan->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -213,7 +220,7 @@ class LayananController extends Controller
                 'tgl_surat_panitera_pengadilan' => $request->tgl_surat_panitera_pengadilan,
                 'tgl_melapor' => $request->tgl_melapor,
             ]);
-            $data_perceraian->pengajuan()->create([
+            $pengajuan = $data_perceraian->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -233,7 +240,7 @@ class LayananController extends Controller
                 'tgl_surat_panitera_pengadilan' => $request->tgl_surat_panitera_pengadilan,
                 'tgl_melapor' => $request->tgl_melapor,
             ]);
-            $data_pembatalan_perceraian->pengajuan()->create([
+            $pengajuan = $data_pembatalan_perceraian->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -266,7 +273,7 @@ class LayananController extends Controller
                 'no_kk_saksi_2' => $request->no_kk_saksi_2,
                 'kewarganegaraan_saksi_2' => $request->kewarganegaraan_saksi_2,
             ]);
-            $data_kematian->pengajuan()->create([
+            $pengajuan = $data_kematian->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -295,7 +302,7 @@ class LayananController extends Controller
                 'nama_lembaga_penetapan_pengadilan' => ucwords($request->nama_lembaga_penetapan_pengadilan),
                 'tempat_lembaga_penetapan_pengadilan' => ucwords($request->tempat_lembaga_penetapan_pengadilan),
             ]);
-            $data_pengangkatan_anak->pengajuan()->create([
+            $pengajuan = $data_pengangkatan_anak->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -317,7 +324,7 @@ class LayananController extends Controller
                 'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
                 'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
             ]);
-            $data_pengakuan_anak->pengajuan()->create([
+            $pengajuan = $data_pengakuan_anak->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -340,7 +347,7 @@ class LayananController extends Controller
                 'nomor_penetapan_pengadilan' => $request->nomor_penetapan_pengadilan,
                 'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
             ]);
-            $data_pengesahan_anak->pengajuan()->create([
+            $pengajuan = $data_pengesahan_anak->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -357,7 +364,7 @@ class LayananController extends Controller
                 'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
                 'nama_lembaga_pengadilan' => ucwords($request->nama_lembaga_pengadilan),
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -379,7 +386,7 @@ class LayananController extends Controller
                 'nomor_keputusan_menteri' => $request->nomor_keputusan_menteri,
                 'tgl_keputusan_menteri' => $request->tgl_keputusan_menteri,
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -393,7 +400,7 @@ class LayananController extends Controller
                 'tgl_penetapan_pengadilan' => $request->tgl_penetapan_pengadilan,
                 'nama_lembaga_pengadilan' => $request->nama_lembaga_pengadilan,
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -404,7 +411,7 @@ class LayananController extends Controller
                 'nama_ayah_ibu_wali' => ucwords($request->nama_ayah_ibu_wali),
                 'nik_ayah_ibu_wali' => $request->nik_ayah_ibu_wali,
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
@@ -417,11 +424,11 @@ class LayananController extends Controller
                 'nomor_putusan_pengadilan' => $request->nomor_putusan_pengadilan,
                 'tgl_putusan_pengadilan' => $request->tgl_putusan_pengadilan
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
-        } elseif ($layanan->url == 'pelapor-pencatatan-sipil-dari-luar-wilayah-nkri' && $layanan->id == 16) {
+        } elseif ($layanan->url == 'pelaporan-pencatatan-sipil-dari-luar-wilayah-nkri' && $layanan->id == 16) {
             $data_perubahan_nama = DataPelaporanPencatatanSipilDariLuarWilayahNkri::create([
                 'id_pelapor' => auth()->id(),
                 'jenis_peristiwa_penting' => $request->jenis_peristiwa_penting,
@@ -431,12 +438,29 @@ class LayananController extends Controller
                 'nomor_bukti_pencatatan_sipil_dari_negara_setempat' => $request->nomor_bukti_pencatatan_sipil_dari_negara_setempat,
                 'tgl_penerbitan_dari_negara_setempat' => $request->tgl_penerbitan_dari_negara_setempat,
             ]);
-            $data_perubahan_nama->pengajuan()->create([
+            $pengajuan = $data_perubahan_nama->pengajuan()->create([
                 'id_layanan' => $layanan->id,
                 'id_pelapor' => auth()->id(),
             ]);
         } else {
             return abort('404');
+        }
+
+        // upload berkas
+        if ($request->berkas_persyaratan) {
+            foreach ($request->berkas_persyaratan as $index => $persyaratan) {
+                $berkas_persyaratan = $persyaratan['berkas'];
+                $berkas = time() . $persyaratan['id_persyaratan'] . '.' . $berkas_persyaratan->extension();
+                $berkas_persyaratan->move(public_path('berkas'), $berkas);
+
+                PengajuanBerkas::create([
+                    'id_pengajuan' => $pengajuan->id,
+                    'id_persyaratan' => $persyaratan['id_persyaratan'],
+                    'berkas' => $berkas,
+                    'upload' => true,
+                    'valid' => false,
+                ]);
+            }
         }
 
         return redirect(url('app/beranda'))->with('success', 'Berhasil mengajukan pelaporan pencatatan sipil');

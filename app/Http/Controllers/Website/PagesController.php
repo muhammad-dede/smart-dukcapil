@@ -13,9 +13,9 @@ class PagesController extends Controller
     {
         return view('website.index', [
             'total' => Pengajuan::count(),
-            'diproses' => Pengajuan::where('terima', null)->count(),
-            'diterima' => Pengajuan::where('terima', 'Y')->count(),
-            'ditolak' => Pengajuan::where('terima', 'N')->count(),
+            'diproses' => Pengajuan::where('status', 'V')->orWhere('status',)->count(),
+            'diterima' => Pengajuan::where('status', 'Y')->count(),
+            'ditolak' => Pengajuan::where('status', 'N')->count(),
             'data_layanan' => Layanan::where('aktif', true)->get(),
         ]);
     }

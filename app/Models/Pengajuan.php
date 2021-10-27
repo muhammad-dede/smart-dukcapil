@@ -23,4 +23,14 @@ class Pengajuan extends Model
     {
         return $this->belongsTo(Layanan::class, 'id_layanan', 'id');
     }
+
+    public function statusPengajuan()
+    {
+        return $this->belongsTo(_StatusPengajuan::class, 'status', 'kode');
+    }
+
+    public function pengajuanBerkas()
+    {
+        return $this->hasMany(PengajuanBerkas::class, 'id_pengajuan', 'id');
+    }
 }

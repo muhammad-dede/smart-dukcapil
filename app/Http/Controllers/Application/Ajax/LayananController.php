@@ -11,6 +11,22 @@ class LayananController extends Controller
 {
     public function storeValidation(Request $request, $url)
     {
+        if ($request->berkas_persyaratan) {
+            foreach ($request->berkas_persyaratan as $index => $berkas) {
+                $validator_berkas = Validator::make($request->all(), [
+                    'berkas_persyaratan.' . $index . '.berkas' => 'required|mimes:' . $berkas['type_backend'] . '|max:1200',
+                ], [
+                    'berkas_persyaratan.' . $index . '.berkas.required' => 'Tidak boleh kosong!',
+                    'berkas_persyaratan.' . $index . '.berkas.mimes' => 'Tipe file harus ' . $berkas['type_backend'],
+                    'berkas_persyaratan.' . $index . '.berkas.max' => 'Ukuran file melebihi ketentuan',
+                ]);
+
+                if ($validator_berkas->fails()) {
+                    return response()->json(['status' => 406, 'message' => $validator_berkas->errors()->toArray()]);
+                }
+            }
+        }
+
         if ($url == 'kelahiran') {
             return $this->validationKelahiran($request);
         } elseif ($url == 'lahir-mati') {
@@ -41,7 +57,7 @@ class LayananController extends Controller
             return $this->validationPembetulanAkta($request);
         } elseif ($url == 'pembatalan-akta') {
             return $this->validationPembatalanAkta($request);
-        } elseif ($url == 'pelapor-pencatatan-sipil-dari-luar-wilayah-nkri') {
+        } elseif ($url == 'pelaporan-pencatatan-sipil-dari-luar-wilayah-nkri') {
             return $this->validationPelaporanPencatatanSipilDariLuarWilayahNkri($request);
         } else {
             return response()->json(['status' => 404, 'message' => 'Tidak Ditemukan']);

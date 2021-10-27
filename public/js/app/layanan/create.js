@@ -25,6 +25,16 @@ $(document).ready(function () {
                         }, 1000);
                         return false;
                     });
+                } else if (response.status == 406) {
+                    $.each(response.message, function (prefix, val) {
+                        var key = prefix.replace(/\./g, '_'); //ubah titik jadi underscore
+                        $('.' + key + '_error').text(val[0]);
+                        $('html, body').animate({
+                            scrollTop: $('#' + key)
+                                .offset().top - 200
+                        }, 1000);
+                        return false;
+                    });
                 } else if (response.status == 200) {
                     $("#form-pengajuan-layanan").submit();
                 }
