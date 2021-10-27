@@ -69,8 +69,10 @@
                                         fill="black" />
                                 </svg>
                             </span>
-                            <span
-                                class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                             @if (get_notifikasi()->count_notifikasi > 0)
+                                <span
+                                    class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                            @endif
                         </div>
                         <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
                             <div class="d-flex flex-column bgi-no-repeat rounded-top"
@@ -114,7 +116,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span class="badge badge-light fs-8">2 hrs</span>
+                                                <span
+                                                    class="badge badge-light fs-8">{{ \Carbon\Carbon::parse($notifikasi->tgl)->diffForHumans() }}</span>
                                             </div>
                                         @endforeach
                                     </div>
