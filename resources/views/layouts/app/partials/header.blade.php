@@ -44,7 +44,7 @@
                             </a>
                         </div>
                         <div data-kt-menu-placement="bottom-start" class="menu-item me-lg-1">
-                            <a class="menu-link {{ Request::is('chat') ? 'active' : '' }} py-3"
+                            <a class="menu-link {{ Request::is('app/chat') ? 'active' : '' }} py-3"
                                 href="{{ url('app/chat') }}">
                                 <span class="menu-title">Chat</span>
                                 <span></span>
