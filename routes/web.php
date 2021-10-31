@@ -3,6 +3,7 @@
 use App\Http\Controllers\Application\Ajax\LayananController as AjaxLayananController;
 use App\Http\Controllers\Application\Ajax\ProfilController as AjaxProfilController;
 use App\Http\Controllers\Application\BerandaController;
+use App\Http\Controllers\Application\ChatController;
 use App\Http\Controllers\Application\LayananController;
 use App\Http\Controllers\Application\ProfilController;
 use App\Http\Controllers\Website\PagesController;
@@ -37,6 +38,10 @@ Route::group(['middleware' => 'auth'], function () {
             // Password
             Route::post('/update-password/validation', [AjaxProfilController::class, 'updatePasswordValidation'])->name('profil.update-password.validation');
             Route::post('/update-password', [ProfilController::class, 'updatePassword'])->name('profil.update-password');
+        });
+
+        Route::group(['prefix' => 'chat', 'as' => 'chat.'], function () {
+            Route::get('/', [ChatController::class, 'index'])->name('index');
         });
     });
 });

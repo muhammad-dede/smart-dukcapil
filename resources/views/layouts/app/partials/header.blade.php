@@ -43,6 +43,13 @@
                                 <span></span>
                             </a>
                         </div>
+                        <div data-kt-menu-placement="bottom-start" class="menu-item me-lg-1">
+                            <a class="menu-link {{ Request::is('chat') ? 'active' : '' }} py-3"
+                                href="{{ url('app/chat') }}">
+                                <span class="menu-title">Chat</span>
+                                <span></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -69,7 +76,7 @@
                                         fill="black" />
                                 </svg>
                             </span>
-                             @if (get_notifikasi()->count_notifikasi > 0)
+                            @if (get_notifikasi()->count_notifikasi > 0)
                                 <span
                                     class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
                             @endif
@@ -78,7 +85,8 @@
                             <div class="d-flex flex-column bgi-no-repeat rounded-top"
                                 style="background-image:url('{{ asset('') }}assets/media/misc/pattern-1.jpg')">
                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifikasi
-                                    <span class="fs-8 opacity-75 ps-3">{{ get_notifikasi()->count_notifikasi }}</span>
+                                    <span
+                                        class="fs-8 opacity-75 ps-3">{{ get_notifikasi()->count_notifikasi }}</span>
                                 </h3>
                                 <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
                                     <li class="nav-item">
